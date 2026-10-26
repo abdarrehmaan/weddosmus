@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Yassine &amp; Fatima | Royal Wedding Invitation (حفل زفافنا)</title>
+  
+  <!-- OpenGraph Metadata for WhatsApp, iMessage & Instagram Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yassine &amp; Fatima | Royal Wedding Invitation ✨" />
+  <meta property="og:description" content="Assalamu Alaikum. You are cordially invited to celebrate the Nikah &amp; Walima of Yassine &amp; Fatima. Tap to open your royal heirloom invitation." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="theme-color" content="#EFE0D6" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload Hero Background Image -->
+  <link rel="preload" as="image" href="assets/wedding-hero-bg.jpg" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="locked arabesque-pattern-bg">
+
+  <!-- Subtle SVG Paper Grain Texture Overlay -->
+  <div class="paper-grain-overlay" aria-hidden="true"></div>
+
+  <!-- Particle Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ==========================================================================
+       STAGE 1: THE INTERACTIVE ENVELOPE
+       ========================================================================== -->
+  <section id="envelope-stage" role="region" aria-label="Interactive Wedding Envelope">
+    
+    <!-- Top Envelope Triangular Flap -->
+    <div class="envelope-flap-wrapper">
+      <svg class="envelope-flap-svg" viewBox="0 0 1000 500" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="flapGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#F2E3DA" />
+            <stop offset="60%" stop-color="#E9D6CA" />
+            <stop offset="100%" stop-color="#DEC4B3" />
+          </linearGradient>
+          <filter id="flapEmboss" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#2D1D14" flood-opacity="0.32" />
+          </filter>
+        </defs>
+        <!-- Triangular Fold Path -->
+        <path d="M0,0 L1000,0 L500,480 Z" fill="url(#flapGrad)" filter="url(#flapEmboss)" />
+        <!-- Subtle Flap Decorative Border Lines -->
+        <path d="M40,15 L500,455 L960,15" fill="none" stroke="#C59B48" stroke-width="1.8" stroke-opacity="0.45" stroke-dasharray="8 6" />
+        <path d="M80,25 L500,430 L920,25" fill="none" stroke="#C59B48" stroke-width="1" stroke-opacity="0.28" />
+      </svg>
+    </div>
+
+    <!-- Envelope Lower Body Textured Background -->
+    <div class="envelope-body"></div>
+
+    <!-- Centerpiece 3D Wax Seal with Arabic Calligraphy -->
+    <div class="wax-seal-container" id="waxSealButton" role="button" tabindex="0" aria-label="Tap to open the royal invitation">
+      
+      <!-- Concentric Pulsing Touch Indicator Rings -->
+      <div class="pulse-touch-indicator" id="pulseIndicator" aria-hidden="true">
+        <span class="pulse-ring"></span>
+        <span class="pulse-ring"></span>
+        <span class="pulse-ring"></span>
+      </div>
+
+      <!-- 3D Seal Disc (Antique Bronze Wax) -->
+      <div class="wax-seal-disc">
+        <div class="wax-scallop-border"></div>
+        <div class="wax-inner-bezel"></div>
+
+        <!-- Centerpiece Arabic Calligraphy & Monogram -->
+        <div class="wax-calligraphy-artwork">
+          <span class="wax-arabic-script">بَارَكَ اللَّهُ</span>
+          <span class="wax-monogram-sub">Y &bull; F</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Envelope Invitation Prompt -->
+    <div class="envelope-prompt">
+      <div class="prompt-royal-crest">
+        <span class="prompt-crest-line"></span>
+        <span class="prompt-crest-star">✦</span>
+        <span class="prompt-crest-line"></span>
+      </div>
+      <h2 class="prompt-title">You Are Cordially Invited</h2>
+      <p class="prompt-sub">Touch the golden wax seal to unseal</p>
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       STAGE 2: ROYAL ISLAMIC SCALLOPED OGEE CARTOUCHE CARD (HERO REVEAL)
+       ========================================================================== -->
+  <header id="hero-reveal-stage">
+    
+    <!-- Seamless Bottom Fade Gradient Mask -->
+    <div class="hero-bottom-fade"></div>
+
+    <!-- Royal Scalloped Cartouche Card -->
+    <div class="royal-cartouche-container invitation-frame card-wrapper" id="heroCard">
+      
+      <!-- Vector Scalloped Ogee Arch with Delicate Gold Floral Tracery -->
+      <svg class="scalloped-cartouche-svg" viewBox="0 0 600 880" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cardParchmentGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FCFAF6" />
+            <stop offset="50%" stop-color="#F8F2E8" />
+            <stop offset="100%" stop-color="#EFE4D4" />
+          </linearGradient>
+          <linearGradient id="goldFiligreeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4A757" />
+            <stop offset="50%" stop-color="#C59B48" />
+            <stop offset="100%" stop-color="#9E7528" />
+          </linearGradient>
+          <filter id="cartoucheShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#140D08" flood-opacity="0.55" />
+          </filter>
+        </defs>
+
+        <!-- Outer Scalloped Ogee Arch Body (Expanded to Fit Typography & Borders) -->
+        <path d="M 300.0 33.0 A 52.7 52.7 0 0 1 389.4 48.8 A 39.8 39.8 0 0 1 447.0 86.1 A 39.5 39.5 0 0 1 490.9 138.0 A 44.4 44.4 0 0 1 522.5 207.7 A 53.9 53.9 0 0 1 541.6 298.7 A 82.1 82.1 0 0 1 548.0 440.0 A 82.1 82.1 0 0 1 541.6 581.3 A 53.9 53.9 0 0 1 522.5 672.3 A 44.4 44.4 0 0 1 490.9 742.0 A 39.5 39.5 0 0 1 447.0 793.9 A 39.8 39.8 0 0 1 389.4 831.2 A 52.7 52.7 0 0 1 300.0 847.0 A 52.7 52.7 0 0 1 210.6 831.2 A 39.8 39.8 0 0 1 153.0 793.9 A 39.5 39.5 0 0 1 109.1 742.0 A 44.4 44.4 0 0 1 77.5 672.3 A 53.9 53.9 0 0 1 58.4 581.3 A 82.1 82.1 0 0 1 52.0 440.0 A 82.1 82.1 0 0 1 58.4 298.7 A 53.9 53.9 0 0 1 77.5 207.7 A 44.4 44.4 0 0 1 109.1 138.0 A 39.5 39.5 0 0 1 153.0 86.1 A 39.8 39.8 0 0 1 210.6 48.8 A 52.7 52.7 0 0 1 300.0 33.0 Z" 
+              fill="url(#cardParchmentGrad)" 
+              stroke="url(#goldFiligreeGrad)" 
+              stroke-width="2" 
+              filter="url(#cartoucheShadow)"/>
+
+        <!-- Inner Delicate Gold Line Following Scallops -->
+        <path d="M 300.0 51.0 A 49.4 49.4 0 0 1 384.0 65.3 A 37.3 37.3 0 0 1 438.1 100.0 A 37.4 37.4 0 0 1 479.4 149.6 A 42.5 42.5 0 0 1 509.0 216.6 A 51.8 51.8 0 0 1 527.0 304.1 A 78.9 78.9 0 0 1 533.0 440.0 A 78.9 78.9 0 0 1 527.0 575.9 A 51.8 51.8 0 0 1 509.0 663.4 A 42.5 42.5 0 0 1 479.4 730.4 A 37.4 37.4 0 0 1 438.1 780.0 A 37.3 37.3 0 0 1 384.0 814.7 A 49.4 49.4 0 0 1 300.0 829.0 A 49.4 49.4 0 0 1 216.0 814.7 A 37.3 37.3 0 0 1 161.9 780.0 A 37.4 37.4 0 0 1 120.6 730.4 A 42.5 42.5 0 0 1 91.0 663.4 A 51.8 51.8 0 0 1 73.0 575.9 A 78.9 78.9 0 0 1 67.0 440.0 A 78.9 78.9 0 0 1 73.0 304.1 A 51.8 51.8 0 0 1 91.0 216.6 A 42.5 42.5 0 0 1 120.6 149.6 A 37.4 37.4 0 0 1 161.9 100.0 A 37.3 37.3 0 0 1 216.0 65.3 A 49.4 49.4 0 0 1 300.0 51.0 Z" 
+              fill="none" 
+              stroke="#C59B48" 
+              stroke-width="1.1" 
+              stroke-opacity="0.6"/>
+
+        <!-- Intricate Golden Floral Vine Tracery (Refined & Compact Finials) -->
+        <g stroke="#C59B48" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.75">
+          <!-- TOP APEX COMPACT FINIAL -->
+          <path d="M 300 35 L 300 58" />
+          <path d="M 300 48 Q 288 44 280 52 Q 288 56 295 52" />
+          <path d="M 300 48 Q 312 44 320 52 Q 312 56 305 52" />
+          <circle cx="300" cy="35" r="2.2" fill="#D4A757" />
+          <circle cx="280" cy="52" r="1.8" fill="#D4A757" />
+          <circle cx="320" cy="52" r="1.8" fill="#D4A757" />
+
+          <!-- BOTTOM APEX COMPACT FINIAL -->
+          <path d="M 300 845 L 300 822" stroke-width="1.2" />
+          <path d="M 300 832 Q 288 836 280 828 Q 288 824 295 828" />
+          <path d="M 300 832 Q 312 836 320 828 Q 312 824 305 828" />
+          <circle cx="300" cy="845" r="2.2" fill="#D4A757" />
+          <circle cx="280" cy="828" r="1.8" fill="#D4A757" />
+          <circle cx="320" cy="828" r="1.8" fill="#D4A757" />
+
+          <!-- DELICATE PERIMETER VINE SPRIGS -->
+          <!-- Right side sprigs -->
+          <path d="M 479 150 Q 492 158 505 152 Q 499 165 487 162" />
+          <path d="M 527 304 Q 538 315 534 327 Q 524 323 522 313" />
+          <path d="M 533 440 Q 521 448 525 460 Q 531 458 533 448" />
+          <path d="M 527 576 Q 538 586 532 598 Q 522 594 522 584" />
+          <path d="M 479 730 Q 492 736 502 726 Q 497 741 485 739" />
+
+          <!-- Left side sprigs -->
+          <path d="M 121 150 Q 108 158 95 152 Q 101 165 113 162" />
+          <path d="M 73 304 Q 62 315 66 327 Q 76 323 78 313" />
+          <path d="M 67 440 Q 79 448 75 460 Q 69 458 67 448" />
+          <path d="M 73 576 Q 62 586 68 598 Q 78 594 78 584" />
+          <path d="M 121 730 Q 108 736 98 726 Q 103 741 115 739" />
+        </g>
+      </svg>
+
+      <!-- Centerpiece Staggered Typography Inside the Cartouche Frame -->
+      <div class="card-inner-container hero-content" id="heroTypography">
+        
+        <!-- Header Group -->
+        <div class="card-header-group hero-header-block">
+          <h1 class="bismillah-calligraphy hero-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h1>
+          <p class="invite-subtext hero-invitation-pre">
+            <span>TOGETHER WITH THEIR</span>
+            <span>FAMILIES, INVITE YOU TO</span>
+            <span>CELEBRATE</span>
+          </p>
+        </div>
+
+        <!-- Center Group -->
+        <div class="card-center-group hero-centerpiece-block">
+          <div class="couple-names-wrapper">
+            <span class="couple-names groom-name">Yassine</span>
+            <span class="couple-names-ampersand name-connector">&amp;</span>
+            <span class="couple-names bride-name">Fatima</span>
+          </div>
+          <p class="arabic-wedding-title hero-arabic-subtitle">حفل زفافنا المبارك</p>
+        </div>
+
+        <!-- Footer Group -->
+        <div class="card-footer-group hero-bottom-block">
+          <div class="footer-divider-line hero-divider-line"></div>
+          <div class="wedding-date-text hero-wedding-date">THURSDAY &bull; MAY 21 &bull; 2026</div>
+          <div class="footer-flourish-wrapper" aria-hidden="true">
+            <svg class="footer-flourish-ornament" viewBox="0 0 120 18" width="76" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 60 9 C 50 9 45 4 35 4 C 25 4 20 12 10 12 C 4 12 0 9 0 9" stroke="#C59B48" stroke-width="1" stroke-linecap="round"/>
+              <path d="M 60 9 C 70 9 75 4 85 4 C 95 4 100 12 110 12 C 116 12 120 9 120 9" stroke="#C59B48" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="60" cy="9" r="2.2" fill="#D4A757"/>
+              <circle cx="35" cy="4" r="1.3" fill="#D4A757"/>
+              <circle cx="85" cy="4" r="1.3" fill="#D4A757"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Floating Scroll Indicator Prompt (Cleanly outside/below scalloped frame) -->
+    <div class="scroll-indicator-prompt hero-floating-scroll" id="scrollDownBtn" role="button" tabindex="0" aria-label="Scroll to explore invitation">
+      <span>Scroll to Explore</span>
+      <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       STAGE 3: STREAMLINED SCROLL SECTIONS (BELOW THE FOLD)
+       ========================================================================== -->
+  <main class="main-content-flow" id="mainContent">
+
+    <!-- SECTION 1: GLASSMORPHIC LIVE COUNTDOWN -->
+    <section class="countdown-section-card" aria-label="Wedding Countdown">
+      <!-- Watermark Olive Branch -->
+      <svg class="countdown-watermark" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M10 90 Q40 50 80 15 Q65 45 40 70 Z M35 60 Q20 40 30 25 Q45 40 35 60 Z M55 40 Q40 20 50 5 Q65 20 55 40 Z"/>
+      </svg>
+
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">العد التنازلي</h2>
+        <p class="section-english-subtitle">We Can't Wait Until This Moment</p>
+      </div>
+
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="countdown-card">
+          <span class="countdown-number" id="countDays">00</span>
+          <span class="countdown-label-en">Days</span>
+          <span class="countdown-label-ar">أيام</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countHours">00</span>
+          <span class="countdown-label-en">Hours</span>
+          <span class="countdown-label-ar">ساعات</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countMinutes">00</span>
+          <span class="countdown-label-en">Minutes</span>
+          <span class="countdown-label-ar">دقائق</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countSeconds">00</span>
+          <span class="countdown-label-en">Seconds</span>
+          <span class="countdown-label-ar">ثواني</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ARCHITECTURAL VENUE & NIKAH/WALIMA TIMELINE -->
+    <section class="venue-section-wrapper" aria-label="Venue and Ceremonies Timeline">
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <!-- Architectural Dome / Arch Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2 C8 6 4 12 4 21 L20 21 C20 12 16 6 12 2 Z"/>
+            <path d="M12 2 L12 21"/>
+            <path d="M8 21 C8 17 10 14 12 14 C14 14 16 17 16 21"/>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">مكان الحفل والفعاليات</h2>
+        <p class="section-english-subtitle">The Venue &amp; Celebrations</p>
+      </div>
+
+      <!-- Architectural Venue Sketch Card -->
+      <div class="venue-sketch-card">
+        <img class="venue-sketch-image" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80" alt="Palace Royal Sanctuary Venue" loading="lazy" />
+        <div class="venue-sketch-overlay">
+          <h3 class="venue-palace-title">The Royal Andalusian Palace</h3>
+          <p class="venue-palace-subtitle">Avenue des Jardins &bull; Marrakech Sanctuary</p>
+          <div class="venue-quick-actions">
+            <button class="btn-copy-address" id="copyAddressBtn" type="button" data-address="The Royal Andalusian Palace, Avenue des Jardins, Marrakech">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Address</span>
+            </button>
+            <span class="venue-weather-badge">🌤️ 27°C &bull; Clear Twilight Skies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- View Mode Switcher: Interactive Scratch Passes vs Detailed Timeline -->
+      <div class="events-view-switcher" role="tablist" aria-label="Ceremony View Modes">
+        <button type="button" class="view-switch-btn active" id="btnViewScratch" role="tab" aria-selected="true" aria-controls="scratchPassesSection">
+          <span class="btn-switch-icon">✨</span>
+          <span>Scratch VIP Passes (كروت الكشط)</span>
+        </button>
+        <button type="button" class="view-switch-btn" id="btnViewTimeline" role="tab" aria-selected="false" aria-controls="eventsAccordion">
+          <span class="btn-switch-icon">📋</span>
+          <span>Timeline View (الجدول الزمني)</span>
+        </button>
+      </div>
+
+      <!-- ======================================================================
+           INTERACTIVE GOLD FOIL SCRATCH PASSES
+           ====================================================================== -->
+      <div class="scratch-passes-section" id="scratchPassesSection" role="region" aria-label="Interactive Ceremony Scratch Passes">
+        
+        <div class="scratch-guide-banner">
+          <div class="scratch-guide-pill">
+            <span class="pulse-sparkle">✦</span>
+            <span>EXCLUSIVE CEREMONY PASSES &bull; كروت الحفل الحصرية</span>
+            <span class="pulse-sparkle">✦</span>
+          </div>
+          <p class="scratch-guide-caption">
+            Touch &amp; rub the golden foil on each card with your finger or mouse to reveal your VIP access, date, time &amp; secret program!
+          </p>
+          <div class="scratch-action-tools">
+            <button type="button" class="btn-scratch-tool" id="revealAllPassesBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span>Reveal All Passes (كشف الكل)</span>
+            </button>
+            <button type="button" class="btn-scratch-tool btn-refoil" id="refoilAllPassesBtn" style="display: none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 4v6h-6"></path>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Scratch Again (إعادة الكشط)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="scratch-cards-grid" id="scratchCardsGrid">
+
+          <!-- Pass 1: Mehendi Celebration (حفل الحناء) -->
+          <div class="scratch-card" id="scratchPassMehendi" data-event="mehendi">
+            <!-- Hidden VIP Pass Content Under Foil -->
+            <div class="scratch-pass-content">
+              <div class="pass-header-ribbon">
+                <span class="pass-ribbon-tag">🌺 PRE-WEDDING NIGHT</span>
+                <span class="pass-verified-badge" id="badgeMehendi">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>PASS UNLOCKED</span>
+                </span>
+              </div>
+
+              <div class="pass-title-group">
+                <span class="pass-arabic-title">حفل الحناء التقليدي</span>
+                <h3 class="pass-english-title">Mehendi Celebration</h3>
+              </div>
+
+              <!-- Highlighted Date & Time Plaque -->
+              <div class="pass-timing-plaque">
+                <div class="timing-badge-calendar">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="timing-text-wrap">
+                  <span class="timing-date-highlight">Tuesday &bull; May 19, 2026</span>
+                  <span class="timing-hour-highlight">06:30 PM Onwards</span>
+                </div>
+              </div>
+
+              <!-- Pass Details Rows -->
+              <div class="pass-details-list">
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">📍</span>
+                  <div>
+                    <span class="pass-detail-label">Location</span>
+                    <span class="pass-detail-value">Al-Rawda Rose Courtyard, Andalusian Gardens</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">👗</span>
+                  <div>
+                    <span class="pass-detail-label">Dress Code</span>
+                    <span class="pass-detail-value">Festive Traditional &bull; Emerald Greens &amp; Pastel Gold</span>
+                    <div class="swatches-palette">
+                      <span class="swatch" style="background:#1B4332;" title="Emerald Green"></span>
+                      <span class="swatch" style="background:#E0A93B;" title="Mustard Gold"></span>
+                      <span class="swatch" style="background:#EAD4AA;" title="Pastel Gold"></span>
+                      <span class="swatch" style="background:#F9F4F0;" title="Rose Ivory"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">✨</span>
+                  <div>
+                    <span class="pass-detail-label">Program Highlights</span>
+                    <span class="pass-detail-value">Henna application, Moroccan mint tea ceremony &amp; acoustic family melodies.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pass Actions -->
+              <div class="pass-actions-bar">
+                <a href="https://maps.google.com/?q=Marrakech+Morocco" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Directions</span>
+                </a>
+                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Yassine & Fatima - Mehendi Night" data-start="20260519T183000" data-end="20260519T220000" data-loc="Al-Rawda Rose Courtyard">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
+            <div class="scratch-foil-layer" id="foilLayerMehendi">
+              <canvas class="scratch-canvas" id="canvasMehendi" data-event="mehendi"></canvas>
+              <div class="foil-hint-prompt">
+                <span class="finger-scratch-anim">👆</span>
+                <span>Rub with finger or mouse</span>
+              </div>
+              <button type="button" class="btn-quick-scratch" data-target="mehendi" aria-label="Reveal Mehendi Pass">
+                <span>Reveal Pass</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pass 2: Nikah Solemnization (عقد القران) -->
+          <div class="scratch-card" id="scratchPassNikah" data-event="nikah">
+            <!-- Hidden VIP Pass Content Under Foil -->
+            <div class="scratch-pass-content">
+              <div class="pass-header-ribbon">
+                <span class="pass-ribbon-tag royal">💍 SACRED MARRIAGE COVENANT</span>
+                <span class="pass-verified-badge" id="badgeNikah">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>PASS UNLOCKED</span>
+                </span>
+              </div>
+
+              <div class="pass-title-group">
+                <span class="pass-arabic-title">عقد القران المبارك</span>
+                <h3 class="pass-english-title">Nikah Solemnization</h3>
+              </div>
+
+              <!-- Highlighted Date & Time Plaque -->
+              <div class="pass-timing-plaque royal">
+                <div class="timing-badge-calendar">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="timing-text-wrap">
+                  <span class="timing-date-highlight">Thursday &bull; May 21, 2026</span>
+                  <span class="timing-hour-highlight">05:00 PM (Guests Arrive 04:30 PM)</span>
+                </div>
+              </div>
+
+              <!-- Pass Details Rows -->
+              <div class="pass-details-list">
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">📍</span>
+                  <div>
+                    <span class="pass-detail-label">Location</span>
+                    <span class="pass-detail-value">The Grand Moroccan Sanctuary Hall, Royal Andalusian Palace</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">⏰</span>
+                  <div>
+                    <span class="pass-detail-label">Ceremony Order</span>
+                    <span class="pass-detail-value">Insha'Allah arrival 04:30 PM &bull; Khutbah &amp; Ijab-Qubul at 05:15 PM</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">👗</span>
+                  <div>
+                    <span class="pass-detail-label">Dress Code</span>
+                    <span class="pass-detail-value">Formal Modest Royal Attire &bull; Ivory, Champagne &amp; Warm Earth Tones</span>
+                    <div class="swatches-palette">
+                      <span class="swatch" style="background:#FCFAF6;" title="Ivory Cream"></span>
+                      <span class="swatch" style="background:#EAD4AA;" title="Champagne Gold"></span>
+                      <span class="swatch" style="background:#5C4033;" title="Warm Earth"></span>
+                      <span class="swatch" style="background:#D4A757;" title="Desert Gold"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pass Actions -->
+              <div class="pass-actions-bar">
+                <a href="https://maps.google.com/?q=Royal+Palace+Marrakech" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Directions</span>
+                </a>
+                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Yassine & Fatima - Nikah Ceremony" data-start="20260521T170000" data-end="20260521T210000" data-loc="The Grand Moroccan Sanctuary">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
+            <div class="scratch-foil-layer" id="foilLayerNikah">
+              <canvas class="scratch-canvas" id="canvasNikah" data-event="nikah"></canvas>
+              <div class="foil-hint-prompt">
+                <span class="finger-scratch-anim">👆</span>
+                <span>Rub with finger or mouse</span>
+              </div>
+              <button type="button" class="btn-quick-scratch" data-target="nikah" aria-label="Reveal Nikah Pass">
+                <span>Reveal Pass</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pass 3: Dawat-e-Walima Banquet (وليمة العرس) -->
+          <div class="scratch-card" id="scratchPassWalima" data-event="walima">
+            <!-- Hidden VIP Pass Content Under Foil -->
+            <div class="scratch-pass-content">
+              <div class="pass-header-ribbon">
+                <span class="pass-ribbon-tag banquet">✨ GRAND WEDDING BANQUET</span>
+                <span class="pass-verified-badge" id="badgeWalima">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>PASS UNLOCKED</span>
+                </span>
+              </div>
+
+              <div class="pass-title-group">
+                <span class="pass-arabic-title">وليمة العرس الفاخرة</span>
+                <h3 class="pass-english-title">Dawat-e-Walima Banquet</h3>
+              </div>
+
+              <!-- Highlighted Date & Time Plaque -->
+              <div class="pass-timing-plaque banquet">
+                <div class="timing-badge-calendar">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="timing-text-wrap">
+                  <span class="timing-date-highlight">Friday &bull; May 22, 2026</span>
+                  <span class="timing-hour-highlight">07:30 PM Onwards</span>
+                </div>
+              </div>
+
+              <!-- Pass Details Rows -->
+              <div class="pass-details-list">
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">📍</span>
+                  <div>
+                    <span class="pass-detail-label">Location</span>
+                    <span class="pass-detail-value">Royal Palm Grand Ballroom, Pavilion of Mirrors</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">🍽️</span>
+                  <div>
+                    <span class="pass-detail-label">Dinner Service</span>
+                    <span class="pass-detail-value">Lavish Arabian &amp; Mediterranean Royal Buffet &bull; Insha'Allah 08:30 PM</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">👗</span>
+                  <div>
+                    <span class="pass-detail-label">Dress Code</span>
+                    <span class="pass-detail-value">Black Tie &amp; Royal Evening Wear &bull; Gold &amp; Midnight Jewel Tones</span>
+                    <div class="swatches-palette">
+                      <span class="swatch" style="background:#141B2D;" title="Midnight Navy"></span>
+                      <span class="swatch" style="background:#DF9E26;" title="Royal Gold"></span>
+                      <span class="swatch" style="background:#0D3B2E;" title="Deep Emerald"></span>
+                      <span class="swatch" style="background:#4A0E17;" title="Velvet Burgundy"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pass Actions -->
+              <div class="pass-actions-bar">
+                <a href="https://maps.google.com/?q=Royal+Palm+Marrakech" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Directions</span>
+                </a>
+                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Yassine & Fatima - Walima Banquet" data-start="20260522T193000" data-end="20260522T233000" data-loc="Royal Palm Ballroom">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
+            <div class="scratch-foil-layer" id="foilLayerWalima">
+              <canvas class="scratch-canvas" id="canvasWalima" data-event="walima"></canvas>
+              <div class="foil-hint-prompt">
+                <span class="finger-scratch-anim">👆</span>
+                <span>Rub with finger or mouse</span>
+              </div>
+              <button type="button" class="btn-quick-scratch" data-target="walima" aria-label="Reveal Walima Pass">
+                <span>Reveal Pass</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Compact Expandable Event Accordion (Secondary / Detailed View) -->
+      <div class="timeline-accordion" id="eventsAccordion" style="display: none;">
+        
+        <!-- Ceremony 1: Mehendi Celebration -->
+        <div class="accordion-item" data-event="mehendi">
+          <button class="accordion-trigger" type="button" aria-expanded="false">
+            <div class="accordion-title-wrap">
+              <div class="event-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <span class="event-title-text">Mehendi Celebration (حفل الحناء)</span>
+                <span class="event-date-text">Tuesday &bull; May 19, 2026 &bull; 06:30 PM</span>
+              </div>
+            </div>
+            <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body-inner">
+              <div class="event-detail-row">
+                <span class="event-detail-icon">📍</span>
+                <div>
+                  <span class="event-detail-label">Location</span>
+                  <span>Al-Rawda Rose Courtyard, Andalusian Gardens</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">👗</span>
+                <div>
+                  <span class="event-detail-label">Attire</span>
+                  <span>Festive Traditional &bull; Emerald Greens, Mustard &amp; Pastel Gold</span>
+                  <div class="swatches-palette">
+                    <span class="swatch" style="background:#1B4332;" title="Emerald Green"></span>
+                    <span class="swatch" style="background:#E0A93B;" title="Mustard Gold"></span>
+                    <span class="swatch" style="background:#EAD4AA;" title="Pastel Gold"></span>
+                    <span class="swatch" style="background:#F9F4F0;" title="Rose Ivory"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">✨</span>
+                <div>
+                  <span class="event-detail-label">Program</span>
+                  <span>Henna application, Moroccan tea ceremony &amp; acoustic family melodies.</span>
+                </div>
+              </div>
+              <div class="event-actions-row">
+                <a href="https://maps.google.com/?q=Marrakech+Morocco" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Get Directions
+                </a>
+                <button class="btn-luxury-outline btn-add-calendar" data-title="Yassine & Fatima - Mehendi Night" data-start="20260519T183000" data-end="20260519T220000" data-loc="Al-Rawda Rose Courtyard">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Add to Calendar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ceremony 2: Nikah Solemnization (Main Ceremony) -->
+        <div class="accordion-item active" data-event="nikah">
+          <button class="accordion-trigger" type="button" aria-expanded="true">
+            <div class="accordion-title-wrap">
+              <div class="event-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 3"/>
+                </svg>
+              </div>
+              <div>
+                <span class="event-title-text">Nikah Solemnization (عقد القران)</span>
+                <span class="event-date-text">Thursday &bull; May 21, 2026 &bull; 05:00 PM</span>
+              </div>
+            </div>
+            <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content" style="max-height: 400px;">
+            <div class="accordion-body-inner">
+              <div class="event-detail-row">
+                <span class="event-detail-icon">📍</span>
+                <div>
+                  <span class="event-detail-label">Location</span>
+                  <span>The Grand Moroccan Sanctuary Hall, Royal Andalusian Palace</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">⏰</span>
+                <div>
+                  <span class="event-detail-label">Time</span>
+                  <span>Insha'Allah guests arrive at 04:30 PM &bull; Khutbah &amp; Ijab-Qubul at 05:15 PM</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">👗</span>
+                <div>
+                  <span class="event-detail-label">Dress Code</span>
+                  <span>Formal Modest Royal Attire &bull; Ivory, Champagne &amp; Warm Earth Tones</span>
+                  <div class="swatches-palette">
+                    <span class="swatch" style="background:#FCFAF6;" title="Ivory Cream"></span>
+                    <span class="swatch" style="background:#EAD4AA;" title="Champagne Gold"></span>
+                    <span class="swatch" style="background:#5C4033;" title="Warm Earth"></span>
+                    <span class="swatch" style="background:#D4A757;" title="Desert Gold"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-actions-row">
+                <a href="https://maps.google.com/?q=Royal+Palace+Marrakech" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Get Directions
+                </a>
+                <button class="btn-luxury-outline btn-add-calendar" data-title="Yassine & Fatima - Nikah Ceremony" data-start="20260521T170000" data-end="20260521T210000" data-loc="The Grand Moroccan Sanctuary">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Add to Calendar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ceremony 3: Dawat-e-Walima -->
+        <div class="accordion-item" data-event="walima">
+          <button class="accordion-trigger" type="button" aria-expanded="false">
+            <div class="accordion-title-wrap">
+              <div class="event-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="event-title-text">Dawat-e-Walima Banquet (وليمة العرس)</span>
+                <span class="event-date-text">Friday &bull; May 22, 2026 &bull; 07:30 PM</span>
+              </div>
+            </div>
+            <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body-inner">
+              <div class="event-detail-row">
+                <span class="event-detail-icon">📍</span>
+                <div>
+                  <span class="event-detail-label">Location</span>
+                  <span>Royal Palm Grand Ballroom, Pavilion of Mirrors</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">🍽️</span>
+                <div>
+                  <span class="event-detail-label">Dinner</span>
+                  <span>Lavish Arabian &amp; Mediterranean Royal Buffet &bull; Insha'Allah 08:30 PM</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">👗</span>
+                <div>
+                  <span class="event-detail-label">Dress Code</span>
+                  <span>Black Tie &amp; Royal Evening Wear &bull; Gold &amp; Midnight Jewel Tones</span>
+                  <div class="swatches-palette">
+                    <span class="swatch" style="background:#141B2D;" title="Midnight Navy"></span>
+                    <span class="swatch" style="background:#DF9E26;" title="Royal Gold"></span>
+                    <span class="swatch" style="background:#0D3B2E;" title="Deep Emerald"></span>
+                    <span class="swatch" style="background:#4A0E17;" title="Velvet Burgundy"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-actions-row">
+                <a href="https://maps.google.com/?q=Royal+Palm+Marrakech" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Get Directions
+                </a>
+                <button class="btn-luxury-outline btn-add-calendar" data-title="Yassine & Fatima - Walima Banquet" data-start="20260522T193000" data-end="20260522T233000" data-loc="Royal Palm Ballroom">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Add to Calendar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: OUR STORY & QURANIC BLESSING -->
+    <section class="story-section-card" aria-label="Blessing Verse & Our Story">
+      
+      <!-- Quranic Blessing Card -->
+      <div class="quran-ayah-box">
+        <p class="quran-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p class="quran-arabic-text">
+          «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
+        </p>
+        <p class="quran-translation">
+          &ldquo;And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.&rdquo;
+        </p>
+        <span class="quran-reference">Surah Ar-Rum &bull; 30:21</span>
+      </div>
+
+      <!-- Compact 3-Milestone Story -->
+      <div class="milestones-grid">
+        <div class="milestone-card">
+          <span class="milestone-badge">المكتوب</span>
+          <h3 class="milestone-title">Written in the Stars</h3>
+          <p class="milestone-desc">Two paths crossed under divine timing, planting the seeds of mutual respect and friendship.</p>
+        </div>
+        <div class="milestone-card">
+          <span class="milestone-badge">الخطوبة</span>
+          <h3 class="milestone-title">The Khitbah</h3>
+          <p class="milestone-desc">With families united in Dua and joy, the commitment to walk through life together was made.</p>
+        </div>
+        <div class="milestone-card">
+          <span class="milestone-badge">عقد النكاح</span>
+          <h3 class="milestone-title">The Sacred Nikah</h3>
+          <p class="milestone-desc">Beginning our eternal chapter together under Allah’s peace, mercy, and boundless blessings.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GUEST BLESSINGS & DUAS WALL (حائط الأدعية والتهاني) -->
+    <section class="duas-wall-section" id="duasWallSection" aria-label="Guest Duas and Warm Wishes">
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">حائط الأدعية والتهاني</h2>
+        <p class="section-english-subtitle">Heartfelt Prayers &amp; Blessings</p>
+      </div>
+
+      <div class="duas-wall-container">
+        <!-- Floating Live Dua Cards Grid -->
+        <div class="duas-grid" id="duasGrid">
+          
+          <div class="dua-card featured">
+            <div class="dua-card-header">
+              <span class="dua-author-name">Uncle Farouk &amp; Family</span>
+              <span class="dua-tag">Family Blessing</span>
+            </div>
+            <p class="dua-arabic-quote">«بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ»</p>
+            <p class="dua-message-text">May Allah bless your sacred union with boundless peace, tranquility (Sakinah), and righteous offspring. So excited to celebrate with you!</p>
+            <span class="dua-time">Yesterday</span>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-card-header">
+              <span class="dua-author-name">Layla &amp; Zayd Al-Mansoor</span>
+              <span class="dua-tag">Dua</span>
+            </div>
+            <p class="dua-message-text">Mabrook to the most wonderful couple! May your journey together be guided by divine love, laughter, and mutual grace every step of the way.</p>
+            <span class="dua-time">2 days ago</span>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-card-header">
+              <span class="dua-author-name">Amina &amp; Tariq K.</span>
+              <span class="dua-tag">Dua</span>
+            </div>
+            <p class="dua-message-text">From childhood friends to this blessed day! Counting down the days until the Nikah in Marrakech Insha'Allah. Sending all our love!</p>
+            <span class="dua-time">3 days ago</span>
+          </div>
+
+        </div>
+
+        <div class="dua-action-bar">
+          <button class="btn-luxury-outline" id="leaveDuaPromptBtn" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            <span>Send a Blessing or Dua for the Couple</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CURATED INTERACTIVE PHOTO GALLERY -->
+    <section class="gallery-section-wrapper" aria-label="Curated Gallery">
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">ذكرياتنا الجميلة</h2>
+        <p class="section-english-subtitle">Moments of Grace &amp; Devotion</p>
+      </div>
+
+      <!-- Touch Swipe Carousel Track -->
+      <div class="gallery-carousel-container">
+        <div class="gallery-track" id="galleryTrack">
+          
+          <div class="gallery-item" data-index="0" data-caption="The Courtyard of Roses &bull; Serenity in Dawn">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Islamic Architecture & Courtyard" loading="lazy" />
+            <div class="gallery-item-overlay"><span>Courtyard of Roses</span></div>
+          </div>
+
+          <div class="gallery-item" data-index="1" data-caption="The Sacred Ring &bull; Antique 24K Gold Monogram">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80" alt="Wedding Rings and Gold Calligraphy" loading="lazy" />
+            <div class="gallery-item-overlay"><span>Sacred Rings</span></div>
+          </div>
+
+          <div class="gallery-item" data-index="2" data-caption="Lanterns of Marrakech &bull; Amber Warmth">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Romantic Candlelight and Warm Glow" loading="lazy" />
+            <div class="gallery-item-overlay"><span>Amber Lanterns</span></div>
+          </div>
+
+          <div class="gallery-item" data-index="3" data-caption="Handmade Henna Artistry &bull; Mehendi Blessings">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Intricate Henna Details" loading="lazy" />
+            <div class="gallery-item-overlay"><span>Henna Artistry</span></div>
+          </div>
+
+          <div class="gallery-item" data-index="4" data-caption="Silk Ivory &amp; Rose Gold Embroidery">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Silk and Embroidery Texture" loading="lazy" />
+            <div class="gallery-item-overlay"><span>Bespoke Attire</span></div>
+          </div>
+
+          <div class="gallery-item" data-index="5" data-caption="The Royal Sanctuary Archway at Twilight">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Archway at Twilight" loading="lazy" />
+            <div class="gallery-item-overlay"><span>Palace Sanctuary</span></div>
+          </div>
+
+        </div>
+
+        <div class="carousel-nav-dots" id="carouselDots">
+          <span class="carousel-dot active"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: RSVP MODAL & WARM DUAS CLOSING -->
+    <section class="rsvp-closing-section" aria-label="RSVP and Warm Wishes">
+      <div class="rsvp-hero-card">
+        <p class="closing-bismillah">نَسْأَلُكُمُ الدُّعَاءَ بِالْبَرَكَةِ</p>
+        <h2 class="closing-callout-text">We Look Forward to Celebrating With You &bull; Insha'Allah</h2>
+        <p class="closing-dua-body">
+          Your warm presence and pious Duas will grace our special milestone. Kindly confirm your attendance by May 10, 2026.
+        </p>
+
+        <button class="btn-rsvp-primary" id="openRsvpModalBtn">
+          <span>Confirm Attendance (RSVP)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <div>
+          <a class="whatsapp-share-card" id="whatsappShareBtn" href="#" role="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2ZM12.04 20.13C10.56 20.13 9.11 19.74 7.85 19L7.55 18.82L4.44 19.64L5.27 16.61L5.07 16.29C4.24 14.97 3.81 13.46 3.81 11.91C3.81 7.37 7.5 3.69 12.04 3.69C16.58 3.69 20.27 7.37 20.27 11.91C20.27 16.45 16.58 20.13 12.04 20.13ZM16.56 14.39C16.31 14.26 15.09 13.66 14.86 13.58C14.64 13.5 14.47 13.45 14.31 13.7C14.14 13.95 13.66 14.51 13.51 14.68C13.37 14.85 13.22 14.87 12.97 14.75C12.72 14.62 11.92 14.36 10.97 13.52C10.23 12.86 9.73 12.05 9.59 11.8C9.44 11.55 9.57 11.41 9.7 11.29C9.81 11.17 9.95 10.99 10.08 10.84C10.2 10.69 10.25 10.58 10.33 10.42C10.41 10.25 10.37 10.11 10.31 9.98C10.25 9.86 9.75 8.63 9.55 8.12C9.35 7.63 9.14 7.69 8.99 7.69C8.84 7.68 8.68 7.68 8.51 7.68C8.34 7.68 8.07 7.74 7.84 7.99C7.62 8.24 6.98 8.84 6.98 10.06C6.98 11.28 7.87 12.45 7.99 12.62C8.12 12.78 9.74 15.28 12.21 16.35C12.8 16.6 13.26 16.76 13.62 16.87C14.21 17.06 14.75 17.03 15.17 16.97C15.64 16.9 16.62 16.38 16.82 15.8C17.03 15.22 17.03 14.73 16.97 14.62C16.91 14.52 16.75 14.46 16.56 14.39Z"/>
+            </svg>
+            <span>Share Invitation via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <span class="footer-arabic">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</span>
+    <p>May Allah bless this union with boundless love &bull; Yassine &amp; Fatima 2026</p>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS: RSVP POPUP & LIGHTBOX
+       ========================================================================== -->
+  <!-- RSVP Popup Modal -->
+  <div class="modal-backdrop" id="rsvpModal" role="dialog" aria-modal="true" aria-labelledby="rsvpModalTitle">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeRsvpModalBtn" aria-label="Close RSVP modal">&times;</button>
+      
+      <!-- Form Content -->
+      <form id="rsvpForm">
+        <div class="section-header" style="margin-bottom: 1.4rem;">
+          <h3 class="section-arabic-title" id="rsvpModalTitle">تأكيد الحضور</h3>
+          <p class="section-english-subtitle">Confirm Your Attendance</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestName">Full Name *</label>
+          <input class="form-input" type="text" id="guestName" required placeholder="e.g. Tariq Al-Mansoor" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestPhone">WhatsApp / Mobile Number *</label>
+          <input class="form-input" type="tel" id="guestPhone" required placeholder="+971 50 123 4567" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestCount">Number of Attending Guests</label>
+          <select class="form-select" id="guestCount">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ Guests (Family)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Attendance Status *</label>
+          <div class="attendance-toggle-group">
+            <label class="attendance-toggle-label selected" id="attendYesLabel">
+              <input type="radio" name="attendance" value="attending" checked />
+              <span class="attendance-text-en">Joyfully Attending</span>
+              <span class="attendance-text-ar">يشرفني الحضور</span>
+            </label>
+            <label class="attendance-toggle-label" id="attendNoLabel">
+              <input type="radio" name="attendance" value="declined" />
+              <span class="attendance-text-en">Unable to Attend</span>
+              <span class="attendance-text-ar">أعتذر بكل أسف</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestDua">Warm Dua or Message for the Couple</label>
+          <textarea class="form-textarea" id="guestDua" placeholder="May Allah bless you both with Sakinah, Mawaddah and endless joy..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-rsvp-primary" style="width: 100%; margin-top: 0.5rem;">
+          <span>Submit Blessing &bull; إرسال</span>
+        </button>
+      </form>
+
+      <!-- Confirmation Screen State -->
+      <div class="rsvp-success-message" id="rsvpSuccessBox">
+        <div class="rsvp-success-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h4 class="section-arabic-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">جَزَاكُمُ اللَّهُ خَيْرًا</h4>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Your RSVP has been graciously received!
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+          We deeply cherish your companionship and prayers. An invitation confirmation has been saved.
+        </p>
+        <button class="btn-luxury-outline" id="closeSuccessBtn" style="padding: 0.6rem 1.8rem;">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Fullscreen Photo Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close photo preview">&times;</button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" aria-label="Previous photo">&#10094;</button>
+    <div class="lightbox-image-wrap">
+      <img class="lightbox-image" id="lightboxImg" src="" alt="Enlarged photo preview" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" aria-label="Next photo">&#10095;</button>
+  </div>
+
+  <!-- Floating Bottom Glassmorphic Navigation Dock -->
+  <nav class="floating-nav-dock" id="floatingNavDock" aria-label="Quick Navigation">
+    <button class="dock-btn" type="button" data-target="eventsAccordion" title="Wedding Events">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2 C8 6 4 12 4 21 L20 21 C20 12 16 6 12 2 Z"/>
+      </svg>
+      <span>Events</span>
+    </button>
+
+    <button class="dock-btn" type="button" data-target="copyAddressBtn" title="Palace Venue">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      <span>Venue</span>
+    </button>
+
+    <button class="dock-btn" type="button" data-target="duasWallSection" title="Duas Wall">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <span>Duas</span>
+    </button>
+
+    <button class="dock-btn dock-btn-rsvp" type="button" id="dockRsvpBtn" title="Confirm Attendance">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+      <span>RSVP</span>
+    </button>
+  </nav>
+
+  <!-- Ambient Audio Sound Controller (Floating Top Right) -->
+  <button class="ambient-audio-toggle" id="ambientAudioBtn" type="button" aria-label="Toggle ambient wedding melody" title="Ambient Music (Acoustic Oud &amp; Melodies)">
+    <div class="audio-bars-icon" id="audioBars">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </div>
+    <span class="audio-toggle-label">Melody</span>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div class="luxury-toast" id="luxuryToast" role="status" aria-live="polite"></div>
+
+  <!-- Interactive Logic Engine -->
+  <script src="app.js"></script>
+</body>
+</html>

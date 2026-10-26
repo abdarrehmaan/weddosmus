@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════
+   ROYAL LIGHT PALACE DESIGN SYSTEM
+   Inspired by Royal Moorish/Mughal Archways,
+   Warm Candlelight, Sandstone, Alabaster & Blush Roses
+   ═══════════════════════════════════════ */
+:root {
+  --ivory: #FDFBF7;
+  --ivory-cream: #FAF5ED;
+  --sandstone: #EFE5D5;
+  --parchment: #E4D6C1;
+  --espresso: #2C1E18;
+  --espresso-light: #4A352B;
+  --espresso-muted: #765B4D;
+  --gold: #B88B4A;
+  --gold-light: #DFC38A;
+  --gold-dark: #8A6527;
+  --blush: #E2A995;
+  --blush-soft: #F5E4DC;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(184, 139, 74, 0.22);
+  --glass-bg-strong: rgba(255, 255, 255, 0.88);
+  --glass-border-strong: rgba(184, 139, 74, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--ivory);
+}
+
+body {
+  background: var(--ivory);
+  color: var(--espresso);
+  font-family: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #FAF5ED; }
+::-webkit-scrollbar-thumb { background: #C5A165; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #9E7432; }
+
+/* ═══════════════════════════════════════
+   LIGHT PALACE GLASS & UTILITIES
+   ═══════════════════════════════════════ */
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 32px -4px rgba(74, 53, 43, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .glass-strong {
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border-strong);
+    box-shadow: 0 15px 40px -4px rgba(74, 53, 43, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+  .gold-text {
+    background: linear-gradient(135deg, #A77732 0%, #CFA55A 45%, #8A6527 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-shimmer-text {
+    background: linear-gradient(90deg, #8A6527 0%, #D4AF37 25%, #A77732 50%, #E6C888 75%, #8A6527 100%);
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 5s linear infinite;
+  }
+  .gold-border-glow {
+    box-shadow: 0 0 25px rgba(184, 139, 74, 0.22), inset 0 0 15px rgba(223, 195, 138, 0.2);
+    border-color: rgba(184, 139, 74, 0.45);
+  }
+  .text-shadow-gold {
+    text-shadow: 0 2px 20px rgba(184, 139, 74, 0.25);
+  }
+  .palace-arch-overlay {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 248, 237, 0.85) 0%, rgba(250, 245, 237, 0.94) 60%, rgba(240, 230, 215, 0.98) 100%);
+  }
+}
+
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 400% center; }
+}
+
+/* ═══════════════════════════════════════
+   PHONE SIMULATOR SCROLLBAR
+   ═══════════════════════════════════════ */
+.phone-scroll::-webkit-scrollbar { width: 3px; }
+.phone-scroll::-webkit-scrollbar-track { background: transparent; }
+.phone-scroll::-webkit-scrollbar-thumb { background: rgba(184, 139, 74, 0.4); border-radius: 2px; }
+
+/* ═══════════════════════════════════════
+   SECTION PADDING HELPER
+   ═══════════════════════════════════════ */
+.section-py {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-py {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}

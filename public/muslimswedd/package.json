@@ -1,0 +1,13 @@
+{
+  "name": "muslim-wedding-invitation",
+  "version": "1.0.0",
+  "description": "Ultra-Luxury Mobile-First Interactive Muslim Wedding Digital Invitation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["wedding", "nikah", "walima", "luxury-invitation", "mobile-first"],
+  "author": "",
+  "license": "MIT"
+}
