@@ -154,7 +154,7 @@
   // ==========================================================================
   const btnViewScratch = document.getElementById('btnViewScratch');
   const btnViewTimeline = document.getElementById('btnViewTimeline');
-  const scratchPassesSection = document.getElementById('scratchPassesSection');
+  const scratchPassesSection = document.getElementById('save') || document.getElementById('scratchPassesSection');
   const eventsAccordion = document.getElementById('eventsAccordion');
   const revealAllPassesBtn = document.getElementById('revealAllPassesBtn');
   const refoilAllPassesBtn = document.getElementById('refoilAllPassesBtn');

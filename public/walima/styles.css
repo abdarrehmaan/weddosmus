@@ -2635,3 +2635,128 @@ body.locked {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ============================================================
+   PULL-TO-REVEAL TASSEL SCROLL — Save the Date
+   ============================================================ */
+
+.tassel-label-small {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold-dark);
+  margin: 0 0 0.3rem;
+}
+
+.tassel-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1.4rem;
+}
+
+#save, .scratch-passes-section:has(#scroll) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 22px 24px;
+  text-align: center;
+}
+
+.rod {
+  width: min(86vw, 320px);
+  height: 14px;
+  border-radius: 8px;
+  background: linear-gradient(#f1d98f, #b98f3a);
+  box-shadow: 0 4px 8px rgba(0,0,0,.25);
+  position: relative;
+  z-index: 2;
+}
+
+.scroll {
+  width: min(80vw, 296px);
+  height: 0;
+  overflow: hidden;
+  transition: height 1.5s cubic-bezier(.3,.7,.2,1);
+  background: #fdf6e6;
+  color: #0b2f27;
+  border-left: 1px solid rgba(169,127,44,.55);
+  border-right: 1px solid rgba(169,127,44,.55);
+}
+.scroll div { padding: 26px 10px; }
+.scroll b {
+  display: block;
+  font: 700 76px/1 'Cormorant Garamond', serif;
+  color: #0f4337;
+  margin: 6px 0;
+}
+.scroll-serif,
+.scroll .serif {
+  font-size: 26px;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  color: #0b2f27;
+}
+
+.scroll p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #4d6a5f;
+}
+
+.tassel {
+  touch-action: none;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -2px;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+.tassel i {
+  width: 2px;
+  height: 34px;
+  background: #b98f3a;
+  display: block;
+}
+.tassel u {
+  width: 16px;
+  height: 46px;
+  border-radius: 7px 7px 3px 3px;
+  background: #0f4337;
+  box-shadow: 0 0 0 2px #b98f3a;
+  display: block;
+  text-decoration: none;
+}
+.tassel em {
+  font-size: 12px;
+  font-style: normal;
+  color: var(--accent-gold-dark);
+  margin-top: 10px;
+  animation: nudge2 1.6s ease-in-out infinite;
+  display: block;
+}
+@keyframes nudge2 { 50% { transform: translateY(6px); } }
+
+/* confetti pieces */
+.cf {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 6;
+  animation: burst 2.2s ease-out forwards;
+  border-radius: 2px;
+}
+@keyframes burst {
+  to {
+    transform: translate(var(--x), var(--y)) rotate(var(--r));
+    opacity: 0;
+  }
+}

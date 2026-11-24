@@ -359,11 +359,11 @@
         <div id="note"></div>
       </div>
 
-      <!-- View Mode Switcher: Interactive Scratch Passes vs Detailed Timeline -->
+      <!-- View Mode Switcher: Tassel Scroll vs Detailed Timeline -->
       <div class="events-view-switcher" role="tablist" aria-label="Ceremony View Modes">
         <button type="button" class="view-switch-btn active" id="btnViewScratch" role="tab" aria-selected="true" aria-controls="scratchPassesSection">
-          <span class="btn-switch-icon">✨</span>
-          <span>VIP Passes</span>
+          <span class="btn-switch-icon">📜</span>
+          <span>Save the Date</span>
         </button>
         <button type="button" class="view-switch-btn" id="btnViewTimeline" role="tab" aria-selected="false" aria-controls="eventsAccordion">
           <span class="btn-switch-icon">📋</span>
@@ -372,223 +372,31 @@
       </div>
 
       <!-- ======================================================================
-           INTERACTIVE GOLD FOIL SCRATCH PASSES
+           PULL-TO-REVEAL TASSEL SCROLL — Save the Date
            ====================================================================== -->
-      <div class="scratch-passes-section" id="scratchPassesSection" role="region" aria-label="Interactive Ceremony Scratch Passes">
-        
-        <div class="scratch-guide-banner">
-          <div class="scratch-guide-pill">
-            <span class="pulse-sparkle">✦</span>
-            <span>EXCLUSIVE CEREMONY PASSES &bull; كروت الحفل الحصرية</span>
-            <span class="pulse-sparkle">✦</span>
-          </div>
-          <p class="scratch-guide-caption">
-            Touch &amp; rub the golden foil on each card with your finger or mouse to reveal your VIP access, date, time &amp; secret program!
-          </p>
-          <div class="scratch-action-tools">
-            <button type="button" class="btn-scratch-tool" id="revealAllPassesBtn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-              <span>Reveal All Passes (كشف الكل)</span>
-            </button>
-            <button type="button" class="btn-scratch-tool btn-refoil" id="refoilAllPassesBtn" style="display: none;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M23 4v6h-6"></path>
-                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-              </svg>
-              <span>Scratch Again (إعادة الكشط)</span>
-            </button>
+      <section id="save" class="scratch-passes-section" role="region" aria-label="Save the Date Scroll">
+        <p class="small tassel-label-small">Save the date</p>
+        <h2 class="tassel-heading">Pull to reveal</h2>
+
+        <div class="rod"></div>
+
+        <div class="scroll" id="scroll">
+          <div>
+            <p style="margin:0">Tuesday</p>
+            <b>1</b>
+            <span class="serif">December</span>
+            <p>2026</p>
+            <p>Reception at 7:00 PM · Shalimar Garden</p>
           </div>
         </div>
 
-        <div class="scratch-cards-grid" id="scratchCardsGrid">
+        <div class="rod" id="rod2"></div>
 
-          <!-- Pass 1: Guest Arrival & Welcome Reception -->
-          <div class="scratch-card" id="scratchPassMehendi" data-event="mehendi">
-            <!-- Hidden VIP Pass Content Under Foil -->
-            <div class="scratch-pass-content">
-              <div class="pass-header-ribbon">
-                <span class="pass-ribbon-tag">✨ WEDDING RECEPTION PASS</span>
-                <span class="pass-verified-badge" id="badgeMehendi">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>PASS UNLOCKED</span>
-                </span>
-              </div>
-
-              <div class="pass-title-group">
-                <span class="pass-arabic-title">استقبال الضيوف الكرام</span>
-                <h3 class="pass-english-title">Guest Arrival &amp; Welcome Reception</h3>
-              </div>
-
-              <!-- Highlighted Date & Time Plaque -->
-              <div class="pass-timing-plaque">
-                <div class="timing-badge-calendar">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                  </svg>
-                </div>
-                <div class="timing-text-wrap">
-                  <span class="timing-date-highlight">Tuesday &bull; 1 December 2026</span>
-                  <span class="timing-hour-highlight">07:00 PM Onwards</span>
-                </div>
-              </div>
-
-              <!-- Pass Details Rows -->
-              <div class="pass-details-list">
-                <div class="pass-detail-item">
-                  <span class="pass-detail-icon">📍</span>
-                  <div>
-                    <span class="pass-detail-label">Location</span>
-                    <span class="pass-detail-value">Shalimar Garden, 60 Feet Road, Kareli, Prayagraj</span>
-                  </div>
-                </div>
-
-                <div class="pass-detail-item">
-                  <span class="pass-detail-icon">👗</span>
-                  <div>
-                    <span class="pass-detail-label">Dress Code</span>
-                    <span class="pass-detail-value">Modest Formal &amp; Traditional Festive Wear</span>
-                    <div class="swatches-palette">
-                      <span class="swatch" style="background:#0D1B2E;" title="Midnight Navy"></span>
-                      <span class="swatch" style="background:#DFC38A;" title="Royal Gold"></span>
-                      <span class="swatch" style="background:#1B3B32;" title="Emerald Sapphire"></span>
-                      <span class="swatch" style="background:#FAF8F2;" title="Ivory Cream"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="pass-detail-item">
-                  <span class="pass-detail-icon">✨</span>
-                  <div>
-                    <span class="pass-detail-label">Program Highlights</span>
-                    <span class="pass-detail-value">Welcoming of respected guests, warm family felicitations &amp; welcome refreshments.</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Pass Actions -->
-              <div class="pass-actions-bar">
-                <a href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>Directions</span>
-                </a>
-                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Hamza & Hameeza - Welcome Reception" data-start="20261201T190000" data-end="20261201T203000" data-loc="Shalimar Garden, 60 Feet Road, Kareli, Prayagraj">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <span>Add to Calendar</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
-            <div class="scratch-foil-layer" id="foilLayerMehendi">
-              <canvas class="scratch-canvas" id="canvasMehendi" data-event="mehendi"></canvas>
-              <div class="foil-hint-prompt">
-                <span class="finger-scratch-anim">👆</span>
-                <span>Rub with finger or mouse</span>
-              </div>
-              <button type="button" class="btn-quick-scratch" data-target="mehendi" aria-label="Reveal Reception Pass">
-                <span>Reveal Pass</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Pass 2: Grand Wedding Reception & Dinner (المأدبة الملكية الفاخرة) -->
-          <div class="scratch-card" id="scratchPassNikah" data-event="nikah">
-            <!-- Hidden VIP Pass Content Under Foil -->
-            <div class="scratch-pass-content">
-              <div class="pass-header-ribbon">
-                <span class="pass-ribbon-tag royal">🍽️ WEDDING RECEPTION &amp; DINNER</span>
-                <span class="pass-verified-badge" id="badgeNikah">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>PASS UNLOCKED</span>
-                </span>
-              </div>
-
-              <div class="pass-title-group">
-                <span class="pass-arabic-title">المأدبة الفاخرة وتناول العشاء</span>
-                <h3 class="pass-english-title">Grand Wedding Reception &amp; Dinner</h3>
-              </div>
-
-              <!-- Highlighted Date & Time Plaque -->
-              <div class="pass-timing-plaque royal">
-                <div class="timing-badge-calendar">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div class="timing-text-wrap">
-                  <span class="timing-date-highlight">Tuesday &bull; 1 December 2026</span>
-                  <span class="timing-hour-highlight">08:30 PM (Dinner Service)</span>
-                </div>
-              </div>
-
-              <!-- Pass Details Rows -->
-              <div class="pass-details-list">
-                <div class="pass-detail-item">
-                  <span class="pass-detail-icon">📍</span>
-                  <div>
-                    <span class="pass-detail-label">Location</span>
-                    <span class="pass-detail-value">Main Dining Lawn, Shalimar Garden, Kareli</span>
-                  </div>
-                </div>
-
-                <div class="pass-detail-item">
-                  <span class="pass-detail-icon">🍽️</span>
-                  <div>
-                    <span class="pass-detail-label">Culinary Feast</span>
-                    <span class="pass-detail-value">Delicious traditional Mughlai dinner, Biryani, slow-cooked delicacies &amp; live spreads.</span>
-                  </div>
-                </div>
-
-                <div class="pass-detail-item">
-                  <span class="pass-detail-icon">👗</span>
-                  <div>
-                    <span class="pass-detail-label">Dress Code</span>
-                    <span class="pass-detail-value">Evening Formals &bull; Elegant Festive Attire</span>
-                    <div class="swatches-palette">
-                      <span class="swatch" style="background:#0F1C30;" title="Midnight Blue"></span>
-                      <span class="swatch" style="background:#E6C466;" title="Pure Gold"></span>
-                      <span class="swatch" style="background:#4B2433;" title="Velvet Damask"></span>
-                      <span class="swatch" style="background:#FAF8F2;" title="Pearl White"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Pass Actions -->
-              <div class="pass-actions-bar">
-                <a href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>Directions</span>
-                </a>
-                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Hamza & Hameeza - Reception Dinner" data-start="20261201T203000" data-end="20261201T230000" data-loc="Shalimar Garden, Kareli, Prayagraj">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <span>Add to Calendar</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
-            <div class="scratch-foil-layer" id="foilLayerNikah">
-              <canvas class="scratch-canvas" id="canvasNikah" data-event="nikah"></canvas>
-              <div class="foil-hint-prompt">
-                <span class="finger-scratch-anim">👆</span>
-                <span>Rub with finger or mouse</span>
-              </div>
-              <button type="button" class="btn-quick-scratch" data-target="nikah" aria-label="Reveal Dinner Pass">
-                <span>Reveal Pass</span>
-              </button>
-            </div>
-          </div>
-
+        <div class="tassel" id="tassel">
+          <i></i><u></u>
+          <em id="th">Drag the tassel down</em>
         </div>
-      </div>
+      </section>
 
       <!-- Compact Expandable Event Accordion (Secondary / Detailed View) -->
       <div class="timeline-accordion" id="eventsAccordion" style="display: none;">
@@ -940,7 +748,7 @@
 
   <!-- Floating Bottom Glassmorphic Navigation Dock -->
   <nav class="floating-nav-dock" id="floatingNavDock" aria-label="Quick Navigation">
-    <button class="dock-btn" type="button" data-target="eventsAccordion" title="Wedding Events">
+    <button class="dock-btn" type="button" data-target="save" title="Wedding Events">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2 C8 6 4 12 4 21 L20 21 C20 12 16 6 12 2 Z"/>
       </svg>
@@ -978,5 +786,63 @@
 
   <!-- Interactive Logic Engine -->
   <script src="app.js"></script>
+
+  <!-- Pull-to-Reveal Tassel Scroll Logic -->
+  <script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var tas = $('tassel'), sc = $('scroll');
+    if (!tas || !sc) return;
+    var done = false, startY = 0, dy = 0, dragging = false;
+
+    function reveal() {
+      if (done) return;
+      done = true;
+      sc.style.height = '250px';          // unroll the scroll
+      var th = $('th');
+      if (th) th.style.display = 'none';  // hide the hint text
+      tas.style.transform = '';
+
+      // confetti burst after the scroll opens
+      setTimeout(function () {
+        var s = $('save') || $('scratchPassesSection'),
+            r2 = $('rod2');
+        if (!s || !r2) return;
+        var box = r2.getBoundingClientRect(),
+            o = s.getBoundingClientRect();
+        for (var i = 0; i < 42; i++) {
+          var c = document.createElement('span');
+          c.className = 'cf';
+          c.style.left = (box.left + box.width / 2) + 'px';
+          c.style.top  = (box.top - o.top - 120) + 'px';
+          c.style.background = ['#d4ad55', '#8c2b3d', '#0f4337', '#e9a1b0'][i % 4];
+          c.style.setProperty('--x', (Math.random() * 300 - 150) + 'px');
+          c.style.setProperty('--y', (Math.random() * 260 - 90) + 'px');
+          c.style.setProperty('--r', (Math.random() * 720) + 'deg');
+          s.appendChild(c);
+          (function (n) { setTimeout(function () { n.remove(); }, 2300); })(c);
+        }
+      }, 900);
+    }
+
+    tas.addEventListener('pointerdown', function (e) {
+      startY = e.clientY; dy = 0; dragging = true;
+      try { tas.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    tas.addEventListener('pointermove', function (e) {
+      if (!dragging || done) return;
+      dy = Math.max(0, Math.min(90, e.clientY - startY));
+      tas.style.transform = 'translateY(' + dy + 'px)';   // tassel follows the finger
+    });
+    function release() {
+      if (!dragging) return;
+      dragging = false;
+      if (dy > 35 || dy < 4) reveal();      // pulled far enough, or just tapped
+      else tas.style.transform = '';        // snap back
+    }
+    tas.addEventListener('pointerup', release);
+    tas.addEventListener('pointercancel', release);
+  })();
+  </script>
 </body>
 </html>
