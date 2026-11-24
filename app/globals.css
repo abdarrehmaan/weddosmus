@@ -1,28 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════
-   ROYAL LIGHT PALACE DESIGN SYSTEM
-   Inspired by Royal Moorish/Mughal Archways,
-   Warm Candlelight, Sandstone, Alabaster & Blush Roses
+   PREMIUM ISLAMIC DESIGN SYSTEM
+   Emerald Green, Ivory, Champagne Gold,
+   Deep Navy, Arabesque & Islamic Architecture
    ═══════════════════════════════════════ */
 :root {
   --ivory: #FDFBF7;
   --ivory-cream: #FAF5ED;
   --sandstone: #EFE5D5;
   --parchment: #E4D6C1;
-  --espresso: #2C1E18;
-  --espresso-light: #4A352B;
-  --espresso-muted: #765B4D;
+  --espresso: #1A130F;
+  --espresso-light: #3D2B22;
+  --espresso-muted: #6B5547;
   --gold: #B88B4A;
   --gold-light: #DFC38A;
+  --gold-bright: #D4AF37;
   --gold-dark: #8A6527;
+  --emerald: #064E3B;
+  --emerald-deep: #022C22;
+  --emerald-rich: #043927;
+  --navy: #0B192C;
+  --navy-light: #1E3E62;
   --blush: #E2A995;
   --blush-soft: #F5E4DC;
-  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg: rgba(255, 255, 255, 0.78);
   --glass-border: rgba(184, 139, 74, 0.22);
-  --glass-bg-strong: rgba(255, 255, 255, 0.88);
+  --glass-bg-strong: rgba(255, 255, 255, 0.92);
   --glass-border-strong: rgba(184, 139, 74, 0.35);
 }
 
@@ -39,20 +47,20 @@ html {
 body {
   background: var(--ivory);
   color: var(--espresso);
-  font-family: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar { width: 7px; height: 7px; }
 ::-webkit-scrollbar-track { background: #FAF5ED; }
 ::-webkit-scrollbar-thumb { background: #C5A165; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #9E7432; }
 
 /* ═══════════════════════════════════════
-   LIGHT PALACE GLASS & UTILITIES
+   ISLAMIC MOTIFS & UTILITIES
    ═══════════════════════════════════════ */
 @layer utilities {
   .glass {
@@ -62,6 +70,20 @@ body {
     border: 1px solid var(--glass-border);
     box-shadow: 0 10px 32px -4px rgba(74, 53, 43, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
+  .glass-emerald {
+    background: rgba(6, 78, 59, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(223, 195, 138, 0.3);
+    box-shadow: 0 12px 35px rgba(2, 44, 34, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  .glass-navy {
+    background: rgba(11, 25, 44, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(223, 195, 138, 0.25);
+    box-shadow: 0 12px 35px rgba(6, 14, 24, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
   .glass-strong {
     background: var(--glass-bg-strong);
     backdrop-filter: blur(25px);
@@ -70,14 +92,14 @@ body {
     box-shadow: 0 15px 40px -4px rgba(74, 53, 43, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
   }
   .gold-text {
-    background: linear-gradient(135deg, #A77732 0%, #CFA55A 45%, #8A6527 100%);
+    background: linear-gradient(135deg, #A77732 0%, #D4AF37 45%, #8A6527 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .gold-shimmer-text {
-    background: linear-gradient(90deg, #8A6527 0%, #D4AF37 25%, #A77732 50%, #E6C888 75%, #8A6527 100%);
+    background: linear-gradient(90deg, #8A6527 0%, #D4AF37 25%, #DFC38A 50%, #D4AF37 75%, #8A6527 100%);
     background-size: 400% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -85,14 +107,34 @@ body {
     animation: shimmerText 5s linear infinite;
   }
   .gold-border-glow {
-    box-shadow: 0 0 25px rgba(184, 139, 74, 0.22), inset 0 0 15px rgba(223, 195, 138, 0.2);
+    box-shadow: 0 0 25px rgba(184, 139, 74, 0.25), inset 0 0 15px rgba(223, 195, 138, 0.2);
     border-color: rgba(184, 139, 74, 0.45);
   }
   .text-shadow-gold {
-    text-shadow: 0 2px 20px rgba(184, 139, 74, 0.25);
+    text-shadow: 0 2px 20px rgba(184, 139, 74, 0.35);
   }
   .palace-arch-overlay {
-    background: radial-gradient(circle at 50% 30%, rgba(255, 248, 237, 0.85) 0%, rgba(250, 245, 237, 0.94) 60%, rgba(240, 230, 215, 0.98) 100%);
+    background: radial-gradient(circle at 50% 30%, rgba(255, 248, 237, 0.9) 0%, rgba(250, 245, 237, 0.95) 60%, rgba(240, 230, 215, 0.98) 100%);
+  }
+
+  /* Islamic Arabesque Pattern SVG background */
+  .islamic-pattern-bg {
+    background-color: #FAF5ED;
+    background-image: radial-gradient(rgba(184, 139, 74, 0.12) 1.5px, transparent 1.5px), radial-gradient(rgba(184, 139, 74, 0.08) 1.5px, #FAF5ED 1.5px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+  }
+  .islamic-emerald-pattern {
+    background-color: #043927;
+    background-image: radial-gradient(rgba(223, 195, 138, 0.18) 1.5px, transparent 1.5px), radial-gradient(rgba(223, 195, 138, 0.1) 1.5px, #022c22 1.5px);
+    background-size: 44px 44px;
+    background-position: 0 0, 22px 22px;
+  }
+  .islamic-navy-pattern {
+    background-color: #0B192C;
+    background-image: radial-gradient(rgba(223, 195, 138, 0.15) 1.5px, transparent 1.5px), radial-gradient(rgba(223, 195, 138, 0.08) 1.5px, #060e18 1.5px);
+    background-size: 44px 44px;
+    background-position: 0 0, 22px 22px;
   }
 }
 
@@ -101,24 +143,25 @@ body {
   100% { background-position: 400% center; }
 }
 
-/* ═══════════════════════════════════════
-   PHONE SIMULATOR SCROLLBAR
-   ═══════════════════════════════════════ */
+/* Islamic Arch shape helper */
+.islamic-arch {
+  border-top-left-radius: 50% 30%;
+  border-top-right-radius: 50% 30%;
+}
+
+/* Phone Simulator & Customizer Scrollbar */
 .phone-scroll::-webkit-scrollbar { width: 3px; }
 .phone-scroll::-webkit-scrollbar-track { background: transparent; }
 .phone-scroll::-webkit-scrollbar-thumb { background: rgba(184, 139, 74, 0.4); border-radius: 2px; }
 
-/* ═══════════════════════════════════════
-   SECTION PADDING HELPER
-   ═══════════════════════════════════════ */
 .section-py {
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
   .section-py {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
 }

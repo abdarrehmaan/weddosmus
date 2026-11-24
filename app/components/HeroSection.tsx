@@ -1,337 +1,211 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, MapPin, Music, Heart, ArrowRight, Eye, ExternalLink } from "lucide-react";
+import { Sparkles, ArrowRight, Heart, Moon, ShieldCheck, MapPin, Music } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-// ── Golden Palace Light Particles Canvas ──
-function PalaceLightParticles() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    // Warm golden embers & light motes
-    const count = 35;
-    const particles = Array.from({ length: count }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 2.5 + 0.8,
-      dx: (Math.random() - 0.5) * 0.35,
-      dy: -(Math.random() * 0.4 + 0.15),
-      alpha: Math.random() * 0.6 + 0.2,
-      fadeSpeed: Math.random() * 0.005 + 0.003,
-      fadeIn: Math.random() > 0.5,
-      hue: Math.random() > 0.3 ? 42 : 18,
-    }));
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      particles.forEach((p) => {
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.fadeIn) {
-          p.alpha += p.fadeSpeed;
-          if (p.alpha >= 0.75) p.fadeIn = false;
-        } else {
-          p.alpha -= p.fadeSpeed;
-          if (p.alpha <= 0.15) p.fadeIn = true;
-        }
-
-        if (p.y < -10) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 85%, 60%, ${p.alpha})`;
-        ctx.shadowColor = `hsla(${p.hue}, 90%, 65%, 0.5)`;
-        ctx.shadowBlur = 8;
-        ctx.fill();
-      });
-
-      animId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animId);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-10 opacity-70"
-      aria-hidden="true"
-    />
-  );
-}
-
 export default function HeroSection() {
-  const triggerSimulator = () => {
-    window.dispatchEvent(
-      new CustomEvent("openSimulator", {
-        detail: {
-          id: "royal-palace",
-          title: "Royal Noor Palace Archway",
-        },
-      })
-    );
-  };
-
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:py-32"
-    >
-      {/* ── Palace Background with Radiant Sunlight Vignette ── */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/royal-archway.jpg"
-          alt="Royal Palace Archway with Roses and Candle Lanterns"
-          fill
-          priority
-          className="object-cover object-center opacity-30 md:opacity-35 scale-105 filter blur-[0.5px]"
-        />
-        {/* Soft alabaster and warm amber radial mask */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/85 to-ivory" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-100/40 via-transparent to-ivory/90" />
-      </div>
+    <section className="relative min-h-[92vh] pt-32 pb-16 flex items-center justify-center overflow-hidden islamic-pattern-bg">
+      {/* Decorative Islamic Background Ornaments */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-amber-200/25 via-emerald-100/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-24 left-10 w-72 h-72 bg-emerald-700/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-amber-400/15 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Floating Canvas Particles */}
-      <PalaceLightParticles />
-
-      {/* ── Content Grid ── */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Headlines & Value Prop */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 text-center lg:text-left space-y-6"
-          >
-            {/* Pill Badge with Archway Thumbnail */}
+          {/* Left Column: Islamic Typography & CTAs (7 cols) */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            {/* Sacred Arabic Calligraphy Crown */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass border border-gold/40 text-xs md:text-sm font-medium text-espresso shadow-palace-soft"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/10 border border-emerald-800/30 text-emerald-900 shadow-sm"
             >
-              <div className="w-5 h-5 rounded-full overflow-hidden border border-gold/40 shrink-0 relative">
-                <Image
-                  src="/royal-archway.jpg"
-                  alt="Archway"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <Sparkles className="w-3.5 h-3.5 text-gold" />
-              <span>Royal 3D Palace Archway Invitation Websites</span>
+              <Moon className="w-3.5 h-3.5 text-gold-dark" />
+              <span className="text-xs font-semibold uppercase tracking-widest font-arabic text-base leading-none">
+                بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+              </span>
             </motion.div>
 
-            {/* Main Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold text-espresso leading-[1.12] tracking-tight">
-              Turn Your Sacred Union Into a{" "}
-              <span className="block mt-2 gold-shimmer-text italic font-normal">
-                3D Royal Palace Archway
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg text-espresso-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Step inside a candlelit Moorish palace corridor with cascading blush roses,
-              hanging brass lanterns, levitating 3D wax seals, live countdown, and one-tap Google Maps directions.
-            </p>
-
-            {/* Call to Actions */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Link
-                href="/invite/muslimswedd"
-                target="_blank"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-105 transition-all duration-300 text-sm uppercase tracking-wider group"
-              >
-                <Sparkles className="w-4 h-4 text-white" />
-                <span>Open MuslimsWedd 3D Invite (Live Demo)</span>
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              </Link>
-
-              <button
-                onClick={triggerSimulator}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-espresso glass-strong border border-gold/30 hover:border-gold/60 hover:bg-white hover:scale-105 transition-all duration-300 text-sm tracking-wide shadow-palace-soft cursor-pointer"
-              >
-                <Eye className="w-4 h-4 text-gold" />
-                <span>Test Phone Simulator</span>
-              </button>
-            </div>
-
-            {/* Trust Highlights */}
-            <div className="pt-6 grid grid-cols-3 gap-4 border-t border-gold/20 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-              <div>
-                <div className="font-display text-xl sm:text-2xl font-bold text-gold">24 Hours</div>
-                <div className="text-xs text-espresso-muted">Express Delivery</div>
-              </div>
-              <div>
-                <div className="font-display text-xl sm:text-2xl font-bold text-gold">100%</div>
-                <div className="text-xs text-espresso-muted">Mobile & WhatsApp</div>
-              </div>
-              <div>
-                <div className="font-display text-xl sm:text-2xl font-bold text-gold">₹0</div>
-                <div className="text-xs text-espresso-muted">Hosting Fees</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column: 3D Smartphone Palace Mockup (Prominently showcasing the archway image!) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 flex justify-center relative"
-            style={{ perspective: 1200 }}
-          >
-            {/* Ambient Palace Glow behind Mockup */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-96 bg-gradient-to-tr from-amber-300/35 to-blush/35 rounded-full blur-3xl -z-10 pointer-events-none" />
-
-            {/* The 3D Floating Phone Frame */}
-            <div
-              className="relative w-[285px] h-[570px] sm:w-[310px] sm:h-[610px] rounded-[3.2rem] p-3.5 bg-gradient-to-b from-[#F2E8DC] via-[#FAF5ED] to-[#E5D7C2] border-4 border-[#DFC38A] shadow-[0_25px_60px_-15px_rgba(74,53,43,0.3),0_0_40px_rgba(184,139,74,0.3)] animate-float cursor-pointer group"
-              onClick={triggerSimulator}
-              style={{
-                transformStyle: "preserve-3d",
-                transform: "rotateY(-10deg) rotateX(6deg)",
-              }}
+            {/* Headline as requested */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-2"
             >
-              {/* Phone Speaker Notch */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#2C1E18] rounded-full z-40 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-espresso-light mr-2" />
-                <div className="w-8 h-1 bg-espresso-muted rounded-full" />
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-espresso leading-[1.15] tracking-tight">
+                Celebrate Every Beautiful Moment,{" "}
+                <span className="gold-shimmer-text block mt-1">The Islamic Way.</span>
+              </h1>
+            </motion.div>
+
+            {/* Subtitle as requested */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-espresso-muted text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal"
+            >
+              Elegant Islamic invitations and greetings for life&apos;s most meaningful occasions —
+              from sacred Nikah ceremonies and royal Walima feasts to blessed Eid celebrations,
+              Aqiqah milestones, and personal duas.
+            </motion.p>
+
+            {/* Quranic Verse Highlight */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="p-4 rounded-2xl glass-strong border border-gold/30 max-w-xl mx-auto lg:mx-0 space-y-1"
+            >
+              <p className="font-arabic text-sm text-emerald-900 font-bold text-center lg:text-left">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+              </p>
+              <p className="text-[11px] text-espresso-muted italic">
+                &ldquo;And He placed between you affection and mercy.&rdquo; — Surah Ar-Rum [30:21]
+              </p>
+            </motion.div>
+
+            {/* Primary Action Buttons as requested */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
+            >
+              <a
+                href="#weddings"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-105 transition-all"
+              >
+                <Sparkles className="w-4 h-4" />
+                Explore Wedding Invitations
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="#festivals"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-espresso glass hover:bg-white border border-gold/35 hover:border-gold/60 transition-all shadow-sm"
+              >
+                <Moon className="w-4 h-4 text-gold-dark" />
+                Explore Eid & Islamic Cards
+              </a>
+            </motion.div>
+
+            {/* Trust Badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-espresso-muted"
+            >
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                100% Sunnah & Modest Aesthetic
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-gold" />
+                Authentic Arabic Calligraphy
+              </span>
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-amber-700" />
+                Live Maps & WhatsApp RSVP
+              </span>
+            </motion.div>
+          </div>
+
+          {/* Right Column: 3D Islamic Invitation Stage (5 cols) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-5 flex justify-center relative"
+          >
+            {/* Floating Islamic Geometry Shadow */}
+            <div className="absolute inset-0 bg-gold/15 rounded-3xl blur-2xl transform rotate-2 scale-95" />
+
+            {/* Grand Islamic Arch Card Mockup */}
+            <div className="relative w-full max-w-sm rounded-[36px] bg-emerald-deep p-6 sm:p-7 border-2 border-gold/45 shadow-palace-glow text-center text-white overflow-hidden space-y-4">
+              {/* Inner Gold Foil Archway Frame */}
+              <div className="absolute inset-3 border border-gold/30 rounded-[28px] pointer-events-none" />
+
+              {/* Top Calligraphy */}
+              <div className="relative z-10 space-y-1">
+                <span className="font-arabic text-xl text-gold-light block">
+                  بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                </span>
+                <span className="text-[10px] uppercase tracking-widest text-emerald-200/80 font-bold block">
+                  Royal Nikah & Walima Suite
+                </span>
               </div>
 
-              {/* Inner Screen Area with Full High-Res Archway Design */}
-              <div className="relative w-full h-full rounded-[2.6rem] overflow-hidden flex flex-col justify-between p-5 text-center shadow-inner border border-gold/30">
-                {/* HIGH-RES ROYAL ARCHWAY BACKGROUND (Crisp & Glorious) */}
-                <Image
-                  src="/royal-archway.jpg"
-                  alt="Royal Palace Archway Design"
-                  fill
-                  priority
-                  className="object-cover object-center scale-102 group-hover:scale-108 transition-transform duration-700"
-                />
-
-                {/* Subtle top and bottom atmospheric gradients so text is readable while arch remains vivid */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/75 z-10" />
-
-                {/* Top Calligraphy & Heading */}
-                <div className="relative z-20 pt-6">
-                  <div className="text-amber-200 font-serif text-xl font-bold tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                    بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-                  </div>
-                  <div className="text-[10px] uppercase tracking-[3px] text-amber-100/90 font-medium mt-1 drop-shadow">
-                    Royal Nikah & Walima
-                  </div>
-                  <div className="font-display text-2xl font-bold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] mt-1">
-                    Ahmad & Fatima
-                  </div>
-                  <div className="text-xs text-rose-200 drop-shadow mt-0.5">
-                    ✦ The Sacred Palace Corridor ✦
-                  </div>
-                </div>
-
-                {/* Center 3D Wax Seal Floating in Archway Corridor */}
-                <div className="relative z-20 my-auto py-3">
-                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#A83232] via-[#851E1E] to-[#5C1212] flex flex-col items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.7),0_0_20px_rgba(212,175,55,0.4)] border-2 border-[#DFC38A] group-hover:scale-110 transition-transform">
-                    <span className="font-display font-bold text-amber-100 text-lg tracking-wider">
-                      A&F
-                    </span>
-                    <span className="text-[8px] text-amber-200 uppercase tracking-widest">
-                      Open
-                    </span>
-                  </div>
-                  <div className="inline-block mt-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-gold/40 text-[10px] text-amber-200 font-semibold tracking-wider uppercase">
-                    Tap to Open 3D Palace
-                  </div>
-                </div>
-
-                {/* Bottom Event Badge & Countdown */}
-                <div className="relative z-20 space-y-2 pb-2">
-                  <div className="grid grid-cols-3 gap-1.5 bg-black/65 backdrop-blur-md p-2 rounded-xl border border-gold/30 text-center text-white">
-                    <div>
-                      <div className="text-xs font-bold text-amber-300">15</div>
-                      <div className="text-[8px] text-amber-100/70 uppercase">Days</div>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-amber-300">08</div>
-                      <div className="text-[8px] text-amber-100/70 uppercase">Hours</div>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-amber-300">42</div>
-                      <div className="text-[8px] text-amber-100/70 uppercase">Mins</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-center gap-1.5 text-[10px] text-amber-100 font-semibold bg-emerald-950/80 backdrop-blur-md py-1.5 rounded-full border border-emerald-500/40">
-                    <span>📍 Royal Orchid Banquet Hall</span>
-                  </div>
-                </div>
+              {/* Main Calligraphy Emblem */}
+              <div className="relative z-10 py-1">
+                <span className="font-arabic text-3xl text-gold-bright block font-bold">
+                  بَارَكَ ٱللَّٰهُ لَكُمَا
+                </span>
+                <p className="text-[11px] text-amber-100/90 font-serif italic mt-1">
+                  Together with their families request the honor of your prayers & presence
+                </p>
               </div>
 
-              {/* ── Levitating Orbiting Glass Cards ── */}
-              {/* Card 1: Top Right */}
-              <div className="absolute -top-4 -right-10 glass-strong border border-gold/30 rounded-2xl px-3.5 py-2 flex items-center gap-2.5 shadow-palace-soft animate-float-slow z-30">
-                <div className="w-7 h-7 rounded-full bg-gold/15 flex items-center justify-center text-gold">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-espresso">Google Maps</div>
-                  <div className="text-[9px] text-espresso-muted">1-Tap Live Navigation</div>
-                </div>
+              {/* Couple Names */}
+              <div className="relative z-10 py-1">
+                <h3 className="font-display text-2xl font-bold tracking-wide text-white">
+                  Yassine Al-Mansoor
+                </h3>
+                <span className="font-arabic text-lg text-gold-light block mt-0.5">
+                  ياسين المنصور
+                </span>
+                <span className="font-serif italic text-gold text-lg block my-0.5">&</span>
+                <h3 className="font-display text-2xl font-bold tracking-wide text-white">
+                  Fatima Az-Zahra
+                </h3>
+                <span className="font-arabic text-lg text-gold-light block mt-0.5">
+                  فاطمة الزهراء
+                </span>
               </div>
 
-              {/* Card 2: Left Center */}
-              <div className="absolute top-1/2 -left-12 -translate-y-1/2 glass-strong border border-gold/30 rounded-2xl px-3.5 py-2 flex items-center gap-2.5 shadow-palace-soft animate-float-delay z-30">
-                <div className="w-7 h-7 rounded-full bg-blush/20 flex items-center justify-center text-blush-deep">
-                  <Music className="w-3.5 h-3.5" />
+              {/* 3D Wax Seal Button Teaser */}
+              <div className="relative z-10 pt-1">
+                <Link
+                  href="/invite/walima"
+                  className="w-16 h-16 rounded-full mx-auto bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 shadow-gold-glow flex flex-col items-center justify-center text-espresso border border-amber-200 hover:scale-110 transition-transform group cursor-pointer"
+                >
+                  <span className="font-arabic font-bold text-lg leading-tight">وليمة</span>
+                  <span className="text-[8px] font-extrabold uppercase tracking-wider text-amber-950">
+                    Open 3D
+                  </span>
+                </Link>
+                <div className="flex items-center justify-center gap-2 pt-2">
+                  <Link
+                    href="/invite/muslimswedd"
+                    className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/10 hover:bg-white/20 text-[#FFF6BD] border border-gold/30 transition-all"
+                  >
+                    ✦ Nikah Demo
+                  </Link>
+                  <Link
+                    href="/invite/walima"
+                    className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-gold/25 hover:bg-gold/35 text-gold-light border border-gold/45 transition-all"
+                  >
+                    ✨ Walima Demo
+                  </Link>
                 </div>
-                <div>
-                  <div className="text-xs font-semibold text-espresso">Duff & Oud Melodies</div>
-                  <div className="text-[9px] text-espresso-muted">+ Modest Silent Toggle</div>
-                </div>
+                <p className="text-[10px] text-emerald-200/70 mt-1 font-medium">
+                  Tap to Experience Live 3D Heirloom Suites
+                </p>
               </div>
 
-              {/* Card 3: Bottom Right */}
-              <div className="absolute -bottom-5 -right-8 glass-strong border border-gold/30 rounded-2xl px-3.5 py-2 flex items-center gap-2.5 shadow-palace-soft animate-float z-30">
-                <div className="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700">
-                  <Heart className="w-3.5 h-3.5 fill-emerald-700" />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-espresso">Instant WhatsApp RSVP</div>
-                  <div className="text-[9px] text-emerald-700 font-medium">184 Confirmed Guests</div>
-                </div>
+              {/* Floating feature pills */}
+              <div className="relative z-10 pt-2 border-t border-gold/20 flex items-center justify-between text-[10px] text-emerald-200/90">
+                <span>📍 Royal Noor Palace</span>
+                <span>•</span>
+                <span>📅 18 Jumada al-Awwal</span>
+                <span>•</span>
+                <span>🌙 Live RSVP</span>
               </div>
             </div>
           </motion.div>

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Hamza &amp; Hameeza | Wedding Reception (حفل استقبال العرس)</title>
+  
+  <!-- OpenGraph Metadata for WhatsApp, iMessage & Instagram Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hamza &amp; Hameeza | Wedding Reception ✨" />
+  <meta property="og:description" content="Assalamu Alaikum. You are cordially invited to celebrate the Wedding Reception of Hamza Khan (S/O Shrafat Ullah) &amp; Hameeza Siddiqui (Grand D/O Iftikhar Ullah) on Tuesday, 1 December 2026 at Shalimar Garden, Kareli, Prayagraj." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="theme-color" content="#0D1B2E" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload Hero Background Image -->
+  <link rel="preload" as="image" href="assets/wedding-hero-bg.jpg" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="locked arabesque-pattern-bg">
+
+  <!-- Subtle SVG Paper Grain Texture Overlay -->
+  <div class="paper-grain-overlay" aria-hidden="true"></div>
+
+  <!-- Particle Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ==========================================================================
+       STAGE 1: THE INTERACTIVE ENVELOPE
+       ========================================================================== -->
+  <section id="envelope-stage" role="region" aria-label="Interactive Wedding Envelope">
+    
+    <!-- Top Envelope Triangular Flap -->
+    <div class="envelope-flap-wrapper">
+      <svg class="envelope-flap-svg" viewBox="0 0 1000 500" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="flapGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#182A45" />
+            <stop offset="60%" stop-color="#122137" />
+            <stop offset="100%" stop-color="#0B1524" />
+          </linearGradient>
+          <filter id="flapEmboss" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#060C15" flood-opacity="0.55" />
+          </filter>
+        </defs>
+        <!-- Triangular Fold Path -->
+        <path d="M0,0 L1000,0 L500,500 Z" fill="url(#flapGrad)" filter="url(#flapEmboss)" />
+        <!-- Subtle Flap Decorative Border Lines -->
+        <path d="M40,15 L500,475 L960,15" fill="none" stroke="#DFC38A" stroke-width="1.8" stroke-opacity="0.55" stroke-dasharray="8 6" />
+        <path d="M80,25 L500,455 L920,25" fill="none" stroke="#DFC38A" stroke-width="1" stroke-opacity="0.35" />
+      </svg>
+    </div>
+
+    <!-- Envelope Lower Body Textured Background -->
+    <div class="envelope-body"></div>
+
+    <!-- Centerpiece 3D Wax Seal with Arabic Calligraphy -->
+    <div class="wax-seal-container" id="waxSealButton" role="button" tabindex="0" aria-label="Tap to open the royal invitation">
+      
+      <!-- Concentric Pulsing Touch Indicator Rings -->
+      <div class="pulse-touch-indicator" id="pulseIndicator" aria-hidden="true">
+        <span class="pulse-ring"></span>
+        <span class="pulse-ring"></span>
+        <span class="pulse-ring"></span>
+      </div>
+
+      <!-- 3D Seal Disc (Antique Midnight Sapphire Wax) -->
+      <div class="wax-seal-disc">
+        <div class="wax-scallop-border"></div>
+        <div class="wax-inner-bezel"></div>
+
+        <!-- Centerpiece Arabic Calligraphy & Monogram -->
+        <div class="wax-calligraphy-artwork" dir="rtl" lang="ar">
+          <div class="wax-arabic-calligraphy">
+            <span class="wax-arabic-word">دَعْوَةُ</span>
+            <span class="wax-arabic-word">زَفَاف</span>
+          </div>
+          <span class="wax-monogram-sub" dir="ltr">H &bull; H</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Envelope Invitation Prompt -->
+    <div class="envelope-prompt">
+      <div class="guest-welcome-badge" id="guestWelcomePill" style="display:none; font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #DFC38A; margin-bottom: 6px;">
+        VIP INVITATION FOR <span id="guestPillName" style="color:#FFF; font-weight:700;">OUR HONORED GUEST</span>
+      </div>
+      <div class="prompt-royal-crest">
+        <span class="prompt-crest-line"></span>
+        <span class="prompt-crest-star">✦</span>
+        <span class="prompt-crest-line"></span>
+      </div>
+      <h2 class="prompt-title">Wedding Reception Invitation</h2>
+      <p class="prompt-sub">Touch the golden seal to open</p>
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       STAGE 2: ROYAL ISLAMIC SCALLOPED OGEE CARTOUCHE CARD (HERO REVEAL)
+       ========================================================================== -->
+  <header id="hero-reveal-stage">
+    
+    <!-- Seamless Bottom Fade Gradient Mask -->
+    <div class="hero-bottom-fade"></div>
+
+    <!-- Royal Scalloped Cartouche Card -->
+    <div class="royal-cartouche-container invitation-frame card-wrapper" id="heroCard">
+      
+      <!-- Vector Scalloped Ogee Arch with Delicate Gold Floral Tracery -->
+      <svg class="scalloped-cartouche-svg" viewBox="0 0 600 880" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cardParchmentGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FCFDFF" />
+            <stop offset="50%" stop-color="#F3F7FC" />
+            <stop offset="100%" stop-color="#E8F0F8" />
+          </linearGradient>
+          <linearGradient id="goldFiligreeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F5E3B8" />
+            <stop offset="50%" stop-color="#DFC38A" />
+            <stop offset="100%" stop-color="#AA8844" />
+          </linearGradient>
+          <filter id="cartoucheShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#050B14" flood-opacity="0.65" />
+          </filter>
+        </defs>
+
+        <!-- Outer Scalloped Ogee Arch Body (Expanded to Fit Typography & Borders) -->
+        <path d="M 300.0 33.0 A 52.7 52.7 0 0 1 389.4 48.8 A 39.8 39.8 0 0 1 447.0 86.1 A 39.5 39.5 0 0 1 490.9 138.0 A 44.4 44.4 0 0 1 522.5 207.7 A 53.9 53.9 0 0 1 541.6 298.7 A 82.1 82.1 0 0 1 548.0 440.0 A 82.1 82.1 0 0 1 541.6 581.3 A 53.9 53.9 0 0 1 522.5 672.3 A 44.4 44.4 0 0 1 490.9 742.0 A 39.5 39.5 0 0 1 447.0 793.9 A 39.8 39.8 0 0 1 389.4 831.2 A 52.7 52.7 0 0 1 300.0 847.0 A 52.7 52.7 0 0 1 210.6 831.2 A 39.8 39.8 0 0 1 153.0 793.9 A 39.5 39.5 0 0 1 109.1 742.0 A 44.4 44.4 0 0 1 77.5 672.3 A 53.9 53.9 0 0 1 58.4 581.3 A 82.1 82.1 0 0 1 52.0 440.0 A 82.1 82.1 0 0 1 58.4 298.7 A 53.9 53.9 0 0 1 77.5 207.7 A 44.4 44.4 0 0 1 109.1 138.0 A 39.5 39.5 0 0 1 153.0 86.1 A 39.8 39.8 0 0 1 210.6 48.8 A 52.7 52.7 0 0 1 300.0 33.0 Z" 
+              fill="url(#cardParchmentGrad)" 
+              stroke="url(#goldFiligreeGrad)" 
+              stroke-width="2" 
+              filter="url(#cartoucheShadow)"/>
+
+        <!-- Inner Delicate Gold Line Following Scallops -->
+        <path d="M 300.0 51.0 A 49.4 49.4 0 0 1 384.0 65.3 A 37.3 37.3 0 0 1 438.1 100.0 A 37.4 37.4 0 0 1 479.4 149.6 A 42.5 42.5 0 0 1 509.0 216.6 A 51.8 51.8 0 0 1 527.0 304.1 A 78.9 78.9 0 0 1 533.0 440.0 A 78.9 78.9 0 0 1 527.0 575.9 A 51.8 51.8 0 0 1 509.0 663.4 A 42.5 42.5 0 0 1 479.4 730.4 A 37.4 37.4 0 0 1 438.1 780.0 A 37.3 37.3 0 0 1 384.0 814.7 A 49.4 49.4 0 0 1 300.0 829.0 A 49.4 49.4 0 0 1 216.0 814.7 A 37.3 37.3 0 0 1 161.9 780.0 A 37.4 37.4 0 0 1 120.6 730.4 A 42.5 42.5 0 0 1 91.0 663.4 A 51.8 51.8 0 0 1 73.0 575.9 A 78.9 78.9 0 0 1 67.0 440.0 A 78.9 78.9 0 0 1 73.0 304.1 A 51.8 51.8 0 0 1 91.0 216.6 A 42.5 42.5 0 0 1 120.6 149.6 A 37.4 37.4 0 0 1 161.9 100.0 A 37.3 37.3 0 0 1 216.0 65.3 A 49.4 49.4 0 0 1 300.0 51.0 Z" 
+              fill="none" 
+              stroke="#DFC38A" 
+              stroke-width="1.1" 
+              stroke-opacity="0.6"/>
+
+        <!-- Intricate Golden Floral Vine Tracery (Refined & Compact Finials) -->
+        <g stroke="#DFC38A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
+          <!-- TOP APEX COMPACT FINIAL -->
+          <path d="M 300 35 L 300 58" />
+          <path d="M 300 48 Q 288 44 280 52 Q 288 56 295 52" />
+          <path d="M 300 48 Q 312 44 320 52 Q 312 56 305 52" />
+          <circle cx="300" cy="35" r="2.2" fill="#EED79D" />
+          <circle cx="280" cy="52" r="1.8" fill="#EED79D" />
+          <circle cx="320" cy="52" r="1.8" fill="#EED79D" />
+
+          <!-- BOTTOM APEX COMPACT FINIAL -->
+          <path d="M 300 845 L 300 822" stroke-width="1.2" />
+          <path d="M 300 832 Q 288 836 280 828 Q 288 824 295 828" />
+          <path d="M 300 832 Q 312 836 320 828 Q 312 824 305 828" />
+          <circle cx="300" cy="845" r="2.2" fill="#EED79D" />
+          <circle cx="280" cy="828" r="1.8" fill="#EED79D" />
+          <circle cx="320" cy="828" r="1.8" fill="#EED79D" />
+
+          <!-- DELICATE PERIMETER VINE SPRIGS -->
+          <!-- Right side sprigs -->
+          <path d="M 479 150 Q 492 158 505 152 Q 499 165 487 162" />
+          <path d="M 527 304 Q 538 315 534 327 Q 524 323 522 313" />
+          <path d="M 533 440 Q 521 448 525 460 Q 531 458 533 448" />
+          <path d="M 527 576 Q 538 586 532 598 Q 522 594 522 584" />
+          <path d="M 479 730 Q 492 736 502 726 Q 497 741 485 739" />
+
+          <!-- Left side sprigs -->
+          <path d="M 121 150 Q 108 158 95 152 Q 101 165 113 162" />
+          <path d="M 73 304 Q 62 315 66 327 Q 76 323 78 313" />
+          <path d="M 67 440 Q 79 448 75 460 Q 69 458 67 448" />
+          <path d="M 73 576 Q 62 586 68 598 Q 78 594 78 584" />
+          <path d="M 121 730 Q 108 736 98 726 Q 103 741 115 739" />
+        </g>
+      </svg>
+
+      <!-- Centerpiece Staggered Typography Inside the Cartouche Frame -->
+      <div class="card-inner-container hero-content" id="heroTypography">
+        
+        <!-- Header Group -->
+        <div class="card-header-group hero-header-block">
+          <h1 class="bismillah-calligraphy hero-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h1>
+          <p class="invite-subtext hero-invitation-pre">
+            <span>CORDIALLY REQUEST THE HONOR OF YOUR PRESENCE AT</span>
+            <span>THE WEDDING RECEPTION OF</span>
+          </p>
+        </div>
+
+        <!-- Center Group: Groom & Bride with Lineage -->
+        <div class="card-center-group hero-centerpiece-block" style="padding: 0.2rem 0;">
+          <div class="couple-names-wrapper" style="display:flex; flex-direction:column; align-items:center; gap:0.25rem;">
+            
+            <!-- Groom -->
+            <div style="text-align:center;">
+              <span class="couple-names groom-name" style="font-size:clamp(1.7rem, 4.2vw, 2.35rem); display:block; line-height:1.15;">Hamza Khan</span>
+              <span style="font-family:var(--font-sans); font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#C9A050; display:block; margin-top:2px;">S/O Shrafat Ullah</span>
+              <span class="font-arabic" style="font-size:1.1rem; color:#DFC38A; display:block; direction:rtl; margin-top:1px;">حمزة خان بن شرافة الله</span>
+            </div>
+            
+            <!-- Connector -->
+            <span class="couple-names-ampersand name-connector" style="margin:0.25rem 0; font-size:1.4rem;">&amp;</span>
+            
+            <!-- Bride -->
+            <div style="text-align:center;">
+              <span class="couple-names bride-name" style="font-size:clamp(1.7rem, 4.2vw, 2.35rem); display:block; line-height:1.15;">Hameeza Siddiqui</span>
+              <span style="font-family:var(--font-sans); font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#C9A050; display:block; margin-top:2px;">Grand D/O Iftikhar Ullah</span>
+              <span class="font-arabic" style="font-size:1.1rem; color:#DFC38A; display:block; direction:rtl; margin-top:1px;">حميزة صديقي حفيدة افتخار الله</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Group -->
+        <div class="card-footer-group hero-bottom-block">
+          <div class="footer-divider-line hero-divider-line"></div>
+          <div class="wedding-date-text hero-wedding-date" style="font-size:clamp(0.65rem, 1.6vw, 0.85rem); letter-spacing:0.08em; line-height:1.5; text-align:center;">
+            TUESDAY &bull; 1 DECEMBER 2026<br>7:00 PM &bull; SHALIMAR GARDEN
+          </div>
+          <div class="footer-venue-text" style="font-family:var(--font-sans); font-size:0.68rem; color:#DFC38A; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-top:3px; text-align:center;">
+            Kareli, Prayagraj
+          </div>
+          <div class="footer-flourish-wrapper" aria-hidden="true" style="margin-top:4px;">
+            <svg class="footer-flourish-ornament" viewBox="0 0 120 18" width="76" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 60 9 C 50 9 45 4 35 4 C 25 4 20 12 10 12 C 4 12 0 9 0 9" stroke="#DFC38A" stroke-width="1" stroke-linecap="round"/>
+              <path d="M 60 9 C 70 9 75 4 85 4 C 95 4 100 12 110 12 C 116 12 120 9 120 9" stroke="#DFC38A" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="60" cy="9" r="2.2" fill="#EED79D"/>
+              <circle cx="35" cy="4" r="1.3" fill="#EED79D"/>
+              <circle cx="85" cy="4" r="1.3" fill="#EED79D"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Floating Scroll Indicator Prompt (Cleanly outside/below scalloped frame) -->
+    <div class="scroll-indicator-prompt hero-floating-scroll" id="scrollDownBtn" role="button" tabindex="0" aria-label="Scroll to explore invitation">
+      <span>Scroll to Explore</span>
+      <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       STAGE 3: STREAMLINED SCROLL SECTIONS (BELOW THE FOLD)
+       ========================================================================== -->
+  <main class="main-content-flow" id="mainContent">
+
+    <!-- SECTION 1: GLASSMORPHIC LIVE COUNTDOWN -->
+    <section class="countdown-section-card" aria-label="Wedding Countdown">
+      <!-- Watermark Olive Branch -->
+      <svg class="countdown-watermark" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M10 90 Q40 50 80 15 Q65 45 40 70 Z M35 60 Q20 40 30 25 Q45 40 35 60 Z M55 40 Q40 20 50 5 Q65 20 55 40 Z"/>
+      </svg>
+
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">العد التنازلي</h2>
+        <p class="section-english-subtitle">We Can't Wait Until This Moment</p>
+      </div>
+
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="countdown-card">
+          <span class="countdown-number" id="countDays">00</span>
+          <span class="countdown-label-en">Days</span>
+          <span class="countdown-label-ar">أيام</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countHours">00</span>
+          <span class="countdown-label-en">Hours</span>
+          <span class="countdown-label-ar">ساعات</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countMinutes">00</span>
+          <span class="countdown-label-en">Minutes</span>
+          <span class="countdown-label-ar">دقائق</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-number" id="countSeconds">00</span>
+          <span class="countdown-label-en">Seconds</span>
+          <span class="countdown-label-ar">ثواني</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ARCHITECTURAL VENUE & NIKAH/WALIMA TIMELINE -->
+    <section class="venue-section-wrapper" aria-label="Venue and Ceremonies Timeline">
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <!-- Architectural Dome / Arch Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2 C8 6 4 12 4 21 L20 21 C20 12 16 6 12 2 Z"/>
+            <path d="M12 2 L12 21"/>
+            <path d="M8 21 C8 17 10 14 12 14 C14 14 16 17 16 21"/>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">مكان الحفل والفعاليات</h2>
+        <p class="section-english-subtitle">The Venue &amp; Celebrations</p>
+      </div>
+
+      <!-- Architectural Venue Sketch Card -->
+      <div class="venue-sketch-card">
+        <img class="venue-sketch-image" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80" alt="Shalimar Garden Venue Kareli Prayagraj" loading="lazy" />
+        <div class="venue-sketch-overlay">
+          <h3 class="venue-palace-title">Shalimar Garden</h3>
+          <p class="venue-palace-subtitle">60 Feet Road &bull; Kareli, Prayagraj</p>
+          <div class="venue-quick-actions">
+            <button class="btn-copy-address" id="copyAddressBtn" type="button" data-address="Shalimar Garden, 60 Feet Road, Kareli, Prayagraj, Uttar Pradesh">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Address</span>
+            </button>
+            <span class="venue-weather-badge">🌙 20°C &bull; Pleasant Winter Evening</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Interactive Venue Route Map -->
+      <div class="venue-interactive-map-wrapper">
+        <a class="map" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D"
+           aria-label="Open Shalimar Garden in Google Maps">
+          <svg viewBox="0 0 340 220" width="100%">
+            <rect width="340" height="220" fill="#f3e9d4"/>
+            <!-- roads -->
+            <path d="M0 150 C80 120 140 190 340 130" stroke="#fff" stroke-width="14" fill="none"/>
+            <path d="M60 0 C90 80 70 140 110 220" stroke="#fff" stroke-width="10" fill="none"/>
+            <!-- lake -->
+            <ellipse cx="250" cy="55" rx="55" ry="26" fill="#cfe0dc"/>
+            <!-- animated route -->
+            <path class="route" d="M40 190 C100 170 130 120 180 118 S250 100 262 78"
+                  stroke="#0f4337" stroke-width="3" fill="none"/>
+            <!-- bouncing pin -->
+            <g class="pin">
+              <path d="M262 40a16 16 0 0 1 16 16c0 12-16 30-16 30s-16-18-16-30a16 16 0 0 1 16-16z" fill="#8c2b3d"/>
+              <circle cx="262" cy="56" r="6" fill="#fff"/>
+            </g>
+          </svg>
+        </a>
+
+        <!-- Buttons below it -->
+        <div class="map-actions-row">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D">Get directions</a>
+          <button id="copy" type="button">Copy address</button>
+        </div>
+        <div id="note"></div>
+      </div>
+
+      <!-- View Mode Switcher: Interactive Scratch Passes vs Detailed Timeline -->
+      <div class="events-view-switcher" role="tablist" aria-label="Ceremony View Modes">
+        <button type="button" class="view-switch-btn active" id="btnViewScratch" role="tab" aria-selected="true" aria-controls="scratchPassesSection">
+          <span class="btn-switch-icon">✨</span>
+          <span>VIP Passes</span>
+        </button>
+        <button type="button" class="view-switch-btn" id="btnViewTimeline" role="tab" aria-selected="false" aria-controls="eventsAccordion">
+          <span class="btn-switch-icon">📋</span>
+          <span>Timeline</span>
+        </button>
+      </div>
+
+      <!-- ======================================================================
+           INTERACTIVE GOLD FOIL SCRATCH PASSES
+           ====================================================================== -->
+      <div class="scratch-passes-section" id="scratchPassesSection" role="region" aria-label="Interactive Ceremony Scratch Passes">
+        
+        <div class="scratch-guide-banner">
+          <div class="scratch-guide-pill">
+            <span class="pulse-sparkle">✦</span>
+            <span>EXCLUSIVE CEREMONY PASSES &bull; كروت الحفل الحصرية</span>
+            <span class="pulse-sparkle">✦</span>
+          </div>
+          <p class="scratch-guide-caption">
+            Touch &amp; rub the golden foil on each card with your finger or mouse to reveal your VIP access, date, time &amp; secret program!
+          </p>
+          <div class="scratch-action-tools">
+            <button type="button" class="btn-scratch-tool" id="revealAllPassesBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span>Reveal All Passes (كشف الكل)</span>
+            </button>
+            <button type="button" class="btn-scratch-tool btn-refoil" id="refoilAllPassesBtn" style="display: none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 4v6h-6"></path>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Scratch Again (إعادة الكشط)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="scratch-cards-grid" id="scratchCardsGrid">
+
+          <!-- Pass 1: Guest Arrival & Welcome Reception -->
+          <div class="scratch-card" id="scratchPassMehendi" data-event="mehendi">
+            <!-- Hidden VIP Pass Content Under Foil -->
+            <div class="scratch-pass-content">
+              <div class="pass-header-ribbon">
+                <span class="pass-ribbon-tag">✨ WEDDING RECEPTION PASS</span>
+                <span class="pass-verified-badge" id="badgeMehendi">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>PASS UNLOCKED</span>
+                </span>
+              </div>
+
+              <div class="pass-title-group">
+                <span class="pass-arabic-title">استقبال الضيوف الكرام</span>
+                <h3 class="pass-english-title">Guest Arrival &amp; Welcome Reception</h3>
+              </div>
+
+              <!-- Highlighted Date & Time Plaque -->
+              <div class="pass-timing-plaque">
+                <div class="timing-badge-calendar">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="timing-text-wrap">
+                  <span class="timing-date-highlight">Tuesday &bull; 1 December 2026</span>
+                  <span class="timing-hour-highlight">07:00 PM Onwards</span>
+                </div>
+              </div>
+
+              <!-- Pass Details Rows -->
+              <div class="pass-details-list">
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">📍</span>
+                  <div>
+                    <span class="pass-detail-label">Location</span>
+                    <span class="pass-detail-value">Shalimar Garden, 60 Feet Road, Kareli, Prayagraj</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">👗</span>
+                  <div>
+                    <span class="pass-detail-label">Dress Code</span>
+                    <span class="pass-detail-value">Modest Formal &amp; Traditional Festive Wear</span>
+                    <div class="swatches-palette">
+                      <span class="swatch" style="background:#0D1B2E;" title="Midnight Navy"></span>
+                      <span class="swatch" style="background:#DFC38A;" title="Royal Gold"></span>
+                      <span class="swatch" style="background:#1B3B32;" title="Emerald Sapphire"></span>
+                      <span class="swatch" style="background:#FAF8F2;" title="Ivory Cream"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">✨</span>
+                  <div>
+                    <span class="pass-detail-label">Program Highlights</span>
+                    <span class="pass-detail-value">Welcoming of respected guests, warm family felicitations &amp; welcome refreshments.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pass Actions -->
+              <div class="pass-actions-bar">
+                <a href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Directions</span>
+                </a>
+                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Hamza & Hameeza - Welcome Reception" data-start="20261201T190000" data-end="20261201T203000" data-loc="Shalimar Garden, 60 Feet Road, Kareli, Prayagraj">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
+            <div class="scratch-foil-layer" id="foilLayerMehendi">
+              <canvas class="scratch-canvas" id="canvasMehendi" data-event="mehendi"></canvas>
+              <div class="foil-hint-prompt">
+                <span class="finger-scratch-anim">👆</span>
+                <span>Rub with finger or mouse</span>
+              </div>
+              <button type="button" class="btn-quick-scratch" data-target="mehendi" aria-label="Reveal Reception Pass">
+                <span>Reveal Pass</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pass 2: Grand Wedding Reception & Dinner (المأدبة الملكية الفاخرة) -->
+          <div class="scratch-card" id="scratchPassNikah" data-event="nikah">
+            <!-- Hidden VIP Pass Content Under Foil -->
+            <div class="scratch-pass-content">
+              <div class="pass-header-ribbon">
+                <span class="pass-ribbon-tag royal">🍽️ WEDDING RECEPTION &amp; DINNER</span>
+                <span class="pass-verified-badge" id="badgeNikah">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>PASS UNLOCKED</span>
+                </span>
+              </div>
+
+              <div class="pass-title-group">
+                <span class="pass-arabic-title">المأدبة الفاخرة وتناول العشاء</span>
+                <h3 class="pass-english-title">Grand Wedding Reception &amp; Dinner</h3>
+              </div>
+
+              <!-- Highlighted Date & Time Plaque -->
+              <div class="pass-timing-plaque royal">
+                <div class="timing-badge-calendar">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="timing-text-wrap">
+                  <span class="timing-date-highlight">Tuesday &bull; 1 December 2026</span>
+                  <span class="timing-hour-highlight">08:30 PM (Dinner Service)</span>
+                </div>
+              </div>
+
+              <!-- Pass Details Rows -->
+              <div class="pass-details-list">
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">📍</span>
+                  <div>
+                    <span class="pass-detail-label">Location</span>
+                    <span class="pass-detail-value">Main Dining Lawn, Shalimar Garden, Kareli</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">🍽️</span>
+                  <div>
+                    <span class="pass-detail-label">Culinary Feast</span>
+                    <span class="pass-detail-value">Delicious traditional Mughlai dinner, Biryani, slow-cooked delicacies &amp; live spreads.</span>
+                  </div>
+                </div>
+
+                <div class="pass-detail-item">
+                  <span class="pass-detail-icon">👗</span>
+                  <div>
+                    <span class="pass-detail-label">Dress Code</span>
+                    <span class="pass-detail-value">Evening Formals &bull; Elegant Festive Attire</span>
+                    <div class="swatches-palette">
+                      <span class="swatch" style="background:#0F1C30;" title="Midnight Blue"></span>
+                      <span class="swatch" style="background:#E6C466;" title="Pure Gold"></span>
+                      <span class="swatch" style="background:#4B2433;" title="Velvet Damask"></span>
+                      <span class="swatch" style="background:#FAF8F2;" title="Pearl White"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pass Actions -->
+              <div class="pass-actions-bar">
+                <a href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Directions</span>
+                </a>
+                <button type="button" class="btn-luxury-outline btn-add-calendar" data-title="Hamza & Hameeza - Reception Dinner" data-start="20261201T203000" data-end="20261201T230000" data-loc="Shalimar Garden, Kareli, Prayagraj">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metallic Gold Foil Scratch Overlay Canvas -->
+            <div class="scratch-foil-layer" id="foilLayerNikah">
+              <canvas class="scratch-canvas" id="canvasNikah" data-event="nikah"></canvas>
+              <div class="foil-hint-prompt">
+                <span class="finger-scratch-anim">👆</span>
+                <span>Rub with finger or mouse</span>
+              </div>
+              <button type="button" class="btn-quick-scratch" data-target="nikah" aria-label="Reveal Dinner Pass">
+                <span>Reveal Pass</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Compact Expandable Event Accordion (Secondary / Detailed View) -->
+      <div class="timeline-accordion" id="eventsAccordion" style="display: none;">
+        
+        <!-- Ceremony 1: Guest Arrival & Welcome Reception -->
+        <div class="accordion-item" data-event="mehendi">
+          <button class="accordion-trigger" type="button" aria-expanded="false">
+            <div class="accordion-title-wrap">
+              <div class="event-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <span class="event-title-text">Guest Arrival &amp; Welcome<span style="display:block;font-size:0.82rem;color:var(--accent-gold-dark);font-family:var(--font-arabic);direction:rtl;margin-top:1px;">استقبال الضيوف</span></span>
+                <span class="event-date-text">Tuesday &bull; 1 December 2026 &bull; 07:00 PM</span>
+              </div>
+            </div>
+            <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body-inner">
+              <div class="event-detail-row">
+                <span class="event-detail-icon">📍</span>
+                <div>
+                  <span class="event-detail-label">Location</span>
+                  <span>Shalimar Garden, 60 Feet Road, Kareli, Prayagraj</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">👗</span>
+                <div>
+                  <span class="event-detail-label">Attire</span>
+                  <span>Modest Formal &amp; Traditional Festive Wear</span>
+                  <div class="swatches-palette">
+                    <span class="swatch" style="background:#0D1B2E;" title="Midnight Navy"></span>
+                    <span class="swatch" style="background:#DFC38A;" title="Royal Gold"></span>
+                    <span class="swatch" style="background:#1B3B32;" title="Emerald Sapphire"></span>
+                    <span class="swatch" style="background:#FAF8F2;" title="Ivory Cream"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">✨</span>
+                <div>
+                  <span class="event-detail-label">Program</span>
+                  <span>Welcoming of respected guests, warm family felicitations &amp; welcome refreshments.</span>
+                </div>
+              </div>
+              <div class="event-actions-row">
+                <a href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Get Directions
+                </a>
+                <button class="btn-luxury-outline btn-add-calendar" data-title="Hamza & Hameeza - Welcome Reception" data-start="20261201T190000" data-end="20261201T203000" data-loc="Shalimar Garden, Kareli, Prayagraj">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Add to Calendar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ceremony 2: Grand Wedding Reception & Dinner -->
+        <div class="accordion-item active" data-event="nikah">
+          <button class="accordion-trigger" type="button" aria-expanded="true">
+            <div class="accordion-title-wrap">
+              <div class="event-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 3"/>
+                </svg>
+              </div>
+              <div>
+                <span class="event-title-text">Wedding Reception &amp; Dinner<span style="display:block;font-size:0.82rem;color:var(--accent-gold-dark);font-family:var(--font-arabic);direction:rtl;margin-top:1px;">المأدبة الفاخرة</span></span>
+                <span class="event-date-text">Tuesday &bull; 1 December 2026 &bull; 08:30 PM</span>
+              </div>
+            </div>
+            <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content" style="max-height: 400px;">
+            <div class="accordion-body-inner">
+              <div class="event-detail-row">
+                <span class="event-detail-icon">📍</span>
+                <div>
+                  <span class="event-detail-label">Location</span>
+                  <span>Main Dining Lawn, Shalimar Garden, Kareli</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">⏰</span>
+                <div>
+                  <span class="event-detail-label">Time</span>
+                  <span>Dinner service begins at 08:30 PM &bull; Multi-course traditional culinary spreads</span>
+                </div>
+              </div>
+              <div class="event-detail-row">
+                <span class="event-detail-icon">👗</span>
+                <div>
+                  <span class="event-detail-label">Dress Code</span>
+                  <span>Evening Formals &bull; Elegant Festive Attire</span>
+                  <div class="swatches-palette">
+                    <span class="swatch" style="background:#0F1C30;" title="Midnight Blue"></span>
+                    <span class="swatch" style="background:#E6C466;" title="Pure Gold"></span>
+                    <span class="swatch" style="background:#4B2433;" title="Velvet Damask"></span>
+                    <span class="swatch" style="background:#FAF8F2;" title="Pearl White"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="event-actions-row">
+                <a href="https://www.google.com/maps/place/Shalimaar+Garden/@25.4301415,81.8038195,17z/data=!4m6!3m5!1s0x398534cc769c7429:0x4a2ea52411ca5ab!8m2!3d25.4299671!4d81.8063461!16s%2Fg%2F11cn7k3_1y?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Get Directions
+                </a>
+                <button class="btn-luxury-outline btn-add-calendar" data-title="Hamza & Hameeza - Reception Dinner" data-start="20261201T203000" data-end="20261201T230000" data-loc="Shalimar Garden, Kareli, Prayagraj">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Add to Calendar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROPHETIC HADITH & QURANIC BLESSING -->
+    <section class="story-section-card" aria-label="Blessing Verse & Our Story">
+      
+      <!-- Quranic & Prophetic Hadith Blessing Card -->
+      <div class="quran-ayah-box">
+        <p class="quran-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p class="quran-arabic-text" style="color: #DFC38A; font-size: 1.35rem; font-weight: 700; margin-bottom: 0.6rem;">
+          قَالَ رَسُولُ اللَّهِ ﷺ: «أَوْلِمْ وَلَوْ بِشَاةٍ»
+        </p>
+        <p class="quran-translation" style="margin-bottom: 1rem; font-style: italic;">
+          &ldquo;The Messenger of Allah ﷺ said: &lsquo;Give a Walima feast, even if with a single sheep.&rsquo;&rdquo;
+          <span style="display: block; font-size: 0.8rem; opacity: 0.75; margin-top: 0.3rem;">Sahih al-Bukhari &bull; The Sunnah of the Walima Feast</span>
+        </p>
+        <div style="width: 50px; height: 1px; background: rgba(223, 195, 138, 0.4); margin: 1.2rem auto;"></div>
+        <p class="quran-arabic-text">
+          «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
+        </p>
+        <p class="quran-translation">
+          &ldquo;And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.&rdquo;
+        </p>
+        <span class="quran-reference">Surah Ar-Rum &bull; 30:21</span>
+      </div>
+
+      <!-- Compact 3-Milestone Story -->
+      <div class="milestones-grid">
+        <div class="milestone-card">
+          <span class="milestone-badge">المكتوب</span>
+          <h3 class="milestone-title">Divine Decree</h3>
+          <p class="milestone-desc">Two lives written together in the divine record, blossoming into enduring respect and devotion.</p>
+        </div>
+        <div class="milestone-card">
+          <span class="milestone-badge">عقد النكاح</span>
+          <h3 class="milestone-title">The Sacred Nikah</h3>
+          <p class="milestone-desc">United in sacred Islamic covenant before Allah, family, and loved ones with radiant Sakinah.</p>
+        </div>
+        <div class="milestone-card">
+          <span class="milestone-badge">وليمة العرس</span>
+          <h3 class="milestone-title">The Grand Walima</h3>
+          <p class="milestone-desc">Joyfully celebrating the Sunnah feast of hospitality, breaking bread and giving thanks together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GUEST BLESSINGS & DUAS WALL (حائط الأدعية والتهاني) -->
+    <section class="duas-wall-section" id="duasWallSection" aria-label="Guest Duas and Warm Wishes">
+      <div class="section-header">
+        <div class="section-icon-crest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <h2 class="section-arabic-title">حائط الأدعية والتهاني</h2>
+        <p class="section-english-subtitle">Heartfelt Prayers &amp; Blessings</p>
+      </div>
+
+      <div class="duas-wall-container">
+        <!-- Floating Live Dua Cards Grid -->
+        <div class="duas-grid" id="duasGrid">
+          
+          <div class="dua-card featured">
+            <div class="dua-card-header">
+              <span class="dua-author-name">Uncle Farouk &amp; Family</span>
+              <span class="dua-tag">Family Blessing</span>
+            </div>
+            <p class="dua-arabic-quote">«بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ»</p>
+            <p class="dua-message-text">Heartiest congratulations to Hamza &amp; Hameeza! May Allah bless your new journey with endless love, peace, and abundance. Looking forward to celebrating at Shalimar Garden!</p>
+            <span class="dua-time">Yesterday</span>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-card-header">
+              <span class="dua-author-name">Dr. Salman &amp; Family</span>
+              <span class="dua-tag">Dua</span>
+            </div>
+            <p class="dua-message-text">Mabrook to dear Hamza and Hameeza! May Allah shower His divine mercy and affection in your home. Sending all our prayers and congratulations to Shrafat Ullah Sahib and Iftikhar Ullah Sahib&rsquo;s family.</p>
+            <span class="dua-time">2 days ago</span>
+          </div>
+
+          <div class="dua-card">
+            <div class="dua-card-header">
+              <span class="dua-author-name">Amina &amp; Tariq K.</span>
+              <span class="dua-tag">Dua</span>
+            </div>
+            <p class="dua-message-text">Counting down to 1st December in Prayagraj Insha&rsquo;Allah! May Allah bless Hamza &amp; Hameeza with eternal happiness and barakah.</p>
+            <span class="dua-time">3 days ago</span>
+          </div>
+
+        </div>
+
+        <div class="dua-action-bar">
+          <button class="btn-luxury-outline" id="leaveDuaPromptBtn" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            <span>Send a Blessing or Dua for the Couple</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WARM DUAS & SHARE CLOSING -->
+    <section class="rsvp-closing-section" aria-label="Warm Wishes and Blessings">
+      <div class="rsvp-hero-card">
+        <p class="closing-bismillah">نَسْأَلُكُمُ الدُّعَاءَ بِالْبَرَكَةِ</p>
+        <h2 class="closing-callout-text">We Look Forward to Celebrating With You &bull; Insha'Allah</h2>
+        <p class="closing-dua-body">
+          Your presence, love, and pious Duas will honor our celebration.
+        </p>
+
+        <div>
+          <a class="whatsapp-share-card" id="whatsappShareBtn" href="#" role="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2ZM12.04 20.13C10.56 20.13 9.11 19.74 7.85 19L7.55 18.82L4.44 19.64L5.27 16.61L5.07 16.29C4.24 14.97 3.81 13.46 3.81 11.91C3.81 7.37 7.5 3.69 12.04 3.69C16.58 3.69 20.27 7.37 20.27 11.91C20.27 16.45 16.58 20.13 12.04 20.13ZM16.56 14.39C16.31 14.26 15.09 13.66 14.86 13.58C14.64 13.5 14.47 13.45 14.31 13.7C14.14 13.95 13.66 14.51 13.51 14.68C13.37 14.85 13.22 14.87 12.97 14.75C12.72 14.62 11.92 14.36 10.97 13.52C10.23 12.86 9.73 12.05 9.59 11.8C9.44 11.55 9.57 11.41 9.7 11.29C9.81 11.17 9.95 10.99 10.08 10.84C10.2 10.69 10.25 10.58 10.33 10.42C10.41 10.25 10.37 10.11 10.31 9.98C10.25 9.86 9.75 8.63 9.55 8.12C9.35 7.63 9.14 7.69 8.99 7.69C8.84 7.68 8.68 7.68 8.51 7.68C8.34 7.68 8.07 7.74 7.84 7.99C7.62 8.24 6.98 8.84 6.98 10.06C6.98 11.28 7.87 12.45 7.99 12.62C8.12 12.78 9.74 15.28 12.21 16.35C12.8 16.6 13.26 16.76 13.62 16.87C14.21 17.06 14.75 17.03 15.17 16.97C15.64 16.9 16.62 16.38 16.82 15.8C17.03 15.22 17.03 14.73 16.97 14.62C16.91 14.52 16.75 14.46 16.56 14.39Z"/>
+            </svg>
+            <span>Share Invitation via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <span class="footer-arabic">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</span>
+    <p>May Allah bless this union with boundless joy &amp; barakah &bull; Hamza &amp; Hameeza 2026</p>
+    <p style="margin-top:0.5rem;font-size:0.72rem;opacity:0.7;">Made by <a href="https://abdurrahmanmaqsood.in" target="_blank" rel="noopener noreferrer" style="color:#DFC38A;font-weight:600;text-decoration:none;">Abdarrehmaan</a></p>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS: RSVP POPUP & LIGHTBOX
+       ========================================================================== -->
+  <!-- RSVP Popup Modal -->
+  <div class="modal-backdrop" id="rsvpModal" role="dialog" aria-modal="true" aria-labelledby="rsvpModalTitle">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeRsvpModalBtn" aria-label="Close RSVP modal">&times;</button>
+      
+      <!-- Form Content -->
+      <form id="rsvpForm">
+        <div class="section-header" style="margin-bottom: 1.4rem;">
+          <h3 class="section-arabic-title" id="rsvpModalTitle">تأكيد الحضور</h3>
+          <p class="section-english-subtitle">Confirm Attendance &bull; Wedding Reception</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestName">Full Name *</label>
+          <input class="form-input" type="text" id="guestName" required placeholder="e.g. Tariq Khan" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestPhone">WhatsApp / Mobile Number *</label>
+          <input class="form-input" type="tel" id="guestPhone" required placeholder="+91 98765 43210" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestCount">Number of Attending Guests</label>
+          <select class="form-select" id="guestCount">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ Guests (Family)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestMeal">Dinner Feast Preference</label>
+          <select class="form-select" id="guestMeal">
+            <option value="royal-halal-feast" selected>Traditional Mughlai Feast &amp; Biryani</option>
+            <option value="vegetarian-platter">Pure Vegetarian Platter</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Attendance Status *</label>
+          <div class="attendance-toggle-group">
+            <label class="attendance-toggle-label selected" id="attendYesLabel">
+              <input type="radio" name="attendance" value="attending" checked />
+              <span class="attendance-text-en">Joyfully Attending</span>
+              <span class="attendance-text-ar">يشرفني الحضور</span>
+            </label>
+            <label class="attendance-toggle-label" id="attendNoLabel">
+              <input type="radio" name="attendance" value="declined" />
+              <span class="attendance-text-en">Unable to Attend</span>
+              <span class="attendance-text-ar">أعتذر بكل أسف</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guestDua">Warm Dua or Message for the Couple</label>
+          <textarea class="form-textarea" id="guestDua" placeholder="May Allah bless Hamza &amp; Hameeza with endless love, peace, and abundance..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-rsvp-primary" style="width: 100%; margin-top: 0.5rem;">
+          <span>Submit Blessing &bull; إرسال</span>
+        </button>
+      </form>
+
+      <!-- Confirmation Screen State -->
+      <div class="rsvp-success-message" id="rsvpSuccessBox">
+        <div class="rsvp-success-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h4 class="section-arabic-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">جَزَاكُمُ اللَّهُ خَيْرًا</h4>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Your RSVP has been graciously received!
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+          We deeply cherish your companionship and prayers. An invitation confirmation has been saved.
+        </p>
+        <button class="btn-luxury-outline" id="closeSuccessBtn" style="padding: 0.6rem 1.8rem;">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating Bottom Glassmorphic Navigation Dock -->
+  <nav class="floating-nav-dock" id="floatingNavDock" aria-label="Quick Navigation">
+    <button class="dock-btn" type="button" data-target="eventsAccordion" title="Wedding Events">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2 C8 6 4 12 4 21 L20 21 C20 12 16 6 12 2 Z"/>
+      </svg>
+      <span>Events</span>
+    </button>
+
+    <button class="dock-btn" type="button" data-target="copyAddressBtn" title="Palace Venue">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      <span>Venue</span>
+    </button>
+
+    <button class="dock-btn" type="button" data-target="duasWallSection" title="Duas Wall">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <span>Duas</span>
+    </button>
+  </nav>
+
+  <!-- Ambient Audio Sound Controller (Floating Top Right) -->
+  <button class="ambient-audio-toggle" id="ambientAudioBtn" type="button" aria-label="Toggle Wedding Nasheed" title="Wedding Nasheed | Muhammad Al Muqit">
+    <div class="audio-bars-icon" id="audioBars">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </div>
+    <span class="audio-toggle-label">Nasheed</span>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div class="luxury-toast" id="luxuryToast" role="status" aria-live="polite"></div>
+
+  <!-- Interactive Logic Engine -->
+  <script src="app.js"></script>
+</body>
+</html>

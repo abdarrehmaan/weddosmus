@@ -1,19 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Moon } from "lucide-react";
+import Link from "next/link";
 import { pricingTiers } from "@/app/data/templates";
 
-export default function PricingSection() {
+export default function PricingSection({
+  onSelectTier,
+}: {
+  onSelectTier?: (tier: (typeof pricingTiers)[0]) => void;
+}) {
   const handleSelectTier = (tier: (typeof pricingTiers)[0]) => {
-    window.dispatchEvent(
-      new CustomEvent("openOrder", {
-        detail: {
-          package: tier.name,
-          price: tier.price,
-        },
-      })
-    );
+    if (onSelectTier) {
+      onSelectTier(tier);
+    } else {
+      window.dispatchEvent(
+        new CustomEvent("openOrder", {
+          detail: {
+            package: tier.name,
+            price: tier.price,
+          },
+        })
+      );
+    }
   };
 
   return (
@@ -24,15 +33,15 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[3px] text-gold">
-            Transparent Pricing
+          <span className="text-xs font-bold uppercase tracking-[3px] text-gold-dark flex items-center justify-center gap-1.5">
+            <Moon className="w-3.5 h-3.5 text-gold" />
+            Transparent & Modest Pricing
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-espresso">
-            Choose Your Royal Tier
+            Choose Your Sacred Suite Tier
           </h2>
           <p className="text-espresso-muted text-sm sm:text-base leading-relaxed">
-            One-time payment with zero hosting fees. Free revisions and dedicated
-            WhatsApp support included.
+            From 100% complimentary Islamic greetings to full bespoke 3D royal palace wedding editions. Zero monthly fees, cloud hosted for 6 months.
           </p>
         </div>
 
@@ -77,41 +86,52 @@ export default function PricingSection() {
                     {/* Price */}
                     <div className="pt-4 flex items-baseline justify-center gap-2">
                       <span className="font-display text-4xl sm:text-5xl font-black text-espresso">
-                        ₹{tier.price.toLocaleString("en-IN")}
+                        {tier.price === 0 ? "FREE" : `₹${tier.price.toLocaleString("en-IN")}`}
                       </span>
-                      <span className="text-sm text-espresso-muted line-through">
-                        ₹{tier.originalPrice.toLocaleString("en-IN")}
-                      </span>
+                      {tier.originalPrice > 0 && (
+                        <span className="text-sm text-espresso-muted line-through">
+                          ₹{tier.originalPrice.toLocaleString("en-IN")}
+                        </span>
+                      )}
                     </div>
-                    <div className="text-[11px] font-semibold text-emerald-800 bg-emerald-100/70 inline-block px-2.5 py-0.5 rounded-full mt-1">
-                      Save ₹{(tier.originalPrice - tier.price).toLocaleString("en-IN")}
-                    </div>
+                    {tier.price > 0 && (
+                      <div className="text-[11px] font-semibold text-emerald-800 bg-emerald-100/70 inline-block px-2.5 py-0.5 rounded-full mt-1">
+                        Save ₹{(tier.originalPrice - tier.price).toLocaleString("en-IN")}
+                      </div>
+                    )}
                   </div>
 
-                  {/* Features List */}
-                  <ul className="py-6 space-y-3.5">
-                    {tier.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm text-espresso-light">
-                        <span className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 stroke-[3]" />
-                        </span>
-                        <span>{feature}</span>
+                  {/* Feature Checklist */}
+                  <ul className="py-6 space-y-3 text-xs sm:text-sm text-espresso">
+                    {tier.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+                        <span className="text-espresso-light leading-snug">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Select Tier CTA */}
-                <button
-                  onClick={() => handleSelectTier(tier)}
-                  className={`w-full py-3.5 px-6 rounded-full font-semibold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm ${
-                    isPopular
-                      ? "text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-103"
-                      : "text-espresso glass hover:bg-white border border-gold/30 hover:border-gold/60"
-                  }`}
-                >
-                  {tier.cta}
-                </button>
+                {/* CTA Button */}
+                <div className="pt-4 border-t border-gold/15 space-y-2">
+                  <button
+                    onClick={() => handleSelectTier(tier)}
+                    className={`w-full py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                      isPopular
+                        ? "bg-gold-gradient text-white shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-102"
+                        : "glass hover:bg-espresso hover:text-white border-gold/30 text-espresso"
+                    }`}
+                  >
+                    {tier.cta}
+                  </button>
+
+                  <Link
+                    href="/studio"
+                    className="block text-center text-[11px] text-gold-dark hover:underline font-semibold"
+                  >
+                    Or test in Studio first →
+                  </Link>
+                </div>
               </motion.div>
             );
           })}

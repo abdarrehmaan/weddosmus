@@ -2,18 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, ShoppingBag, User, Phone, Moon, Compass } from "lucide-react";
+import Link from "next/link";
+import { useStore } from "@/app/context/StoreContext";
 
-const navLinks = [
-  { label: "MuslimsWedd Live", href: "/invite/muslimswedd", highlight: true },
-  { label: "3D Collection", href: "#collection" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-];
+interface NavbarProps {
+  onOpenCart?: () => void;
+  onOpenAccount?: () => void;
+}
 
-export default function Navbar() {
+export default function Navbar({ onOpenCart, onOpenAccount }: NavbarProps) {
+  const { cart, announcement, setIsCartOpen } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -25,126 +24,171 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
+  const navLinks = [
+    { label: "Wedding Suites", href: "/#weddings" },
+    { label: "Eid & Festivals", href: "/#festivals" },
+    { label: "Custom Studio", href: "/studio", highlight: true },
+    { label: "3D Nikah Suite", href: "/invite/muslimswedd", isExternal: false },
+    { label: "3D Walima Suite", href: "/invite/walima", isExternal: false },
+    { label: "Admin Portal", href: "/admin" },
+  ];
 
   return (
     <>
+      {/* Top Announcement Bar */}
+      {announcement && (
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-amber-100 text-[11px] py-1.5 px-4 text-center font-medium border-b border-gold/30 tracking-wide flex items-center justify-center gap-2">
+          <Moon className="w-3 h-3 text-gold-light" />
+          <span>{announcement}</span>
+        </div>
+      )}
+
+      {/* Main Glass Navbar */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+          announcement ? "top-7" : "top-0"
+        } ${
           scrolled
-            ? "bg-ivory/90 backdrop-blur-xl shadow-palace-soft py-3.5"
-            : "bg-ivory/70 backdrop-blur-md py-5"
+            ? "bg-ivory/95 backdrop-blur-xl shadow-palace-soft py-3 border-b border-gold/20"
+            : "bg-ivory/80 backdrop-blur-md py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a
-            href="#"
+          {/* Islamic Brand Logo */}
+          <Link
+            href="/"
             className="flex items-center gap-2 group cursor-pointer"
-            aria-label="WEDOS Home"
+            aria-label="Noor Islamic Platform Home"
           >
-            <span className="gold-shimmer-text font-display text-2xl md:text-3xl font-extrabold tracking-wider">
-              WEDOS
-            </span>
-            <span className="text-gold text-lg group-hover:rotate-45 transition-transform duration-300">
-              ✦
-            </span>
-          </a>
+            <div className="w-9 h-9 rounded-full bg-emerald-900 border border-gold/40 flex items-center justify-center text-gold-light shadow-sm group-hover:scale-105 transition-transform">
+              <span className="font-arabic text-lg font-bold">نور</span>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1.5">
+                <span className="gold-shimmer-text font-display text-xl sm:text-2xl font-extrabold tracking-wider">
+                  NOOR AL-AQD
+                </span>
+                <span className="text-gold text-xs group-hover:rotate-45 transition-transform duration-300">
+                  ✦
+                </span>
+              </div>
+              <span className="text-[9px] uppercase tracking-[2px] font-semibold text-espresso-muted -mt-1 hidden sm:block">
+                Islamic Digital Invitations
+              </span>
+            </div>
+          </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-6" aria-label="Main Navigation">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-espresso-light hover:text-gold transition-colors duration-200 relative group py-1"
+                className={`text-xs uppercase tracking-wider font-semibold transition-colors duration-200 relative group py-1 ${
+                  link.highlight
+                    ? "text-gold-dark hover:text-espresso"
+                    : "text-espresso-muted hover:text-gold"
+                }`}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-blush rounded-full transition-all duration-300 group-hover:w-full" />
-              </a>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-emerald-700 rounded-full transition-all duration-300 group-hover:w-full" />
+              </Link>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="/invite/muslimswedd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-105 transition-all duration-300"
+          {/* Right Action Icons & CTAs */}
+          <div className="flex items-center gap-2.5">
+            {/* Cart Button */}
+            <button
+              onClick={() => {
+                if (onOpenCart) onOpenCart();
+                else setIsCartOpen(true);
+              }}
+              className="relative p-2.5 rounded-full text-espresso hover:bg-gold/15 transition-all cursor-pointer"
+              aria-label="Open Cart"
+            >
+              <ShoppingBag className="w-4 h-4 text-espresso" />
+              {cart.length > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-800 text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+                  {cart.length}
+                </span>
+              )}
+            </button>
+
+            {/* User Account / Profile Button */}
+            <button
+              onClick={() => {
+                if (onOpenAccount) onOpenAccount();
+              }}
+              className="p-2.5 rounded-full text-espresso hover:bg-gold/15 transition-all cursor-pointer hidden sm:flex"
+              aria-label="Account"
+            >
+              <User className="w-4 h-4 text-espresso" />
+            </button>
+
+            {/* Custom Studio CTA */}
+            <Link
+              href="/studio"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-105 transition-all"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              MuslimsWedd Demo
-            </a>
-            <a
-              href="https://wa.me/911234567890?text=Hi!%20I%20want%20to%20order%20the%20MuslimsWedd%20royal%20invitation"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold text-espresso glass hover:bg-white border border-gold/30 hover:border-gold/60 transition-all"
+              Studio
+            </Link>
+
+            {/* Mobile Hamburger Toggle */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 rounded-xl text-espresso hover:bg-gold/10 transition-colors"
+              aria-label="Toggle Menu"
             >
-              Order on WhatsApp
-            </a>
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-xl glass text-espresso-light hover:text-gold transition-colors"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
-
-        {/* Bottom subtle gold hairline border */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-x-0 top-[65px] z-40 md:hidden bg-ivory-cream/98 backdrop-blur-2xl border-b border-gold/25 shadow-palace-soft px-6 pt-6 pb-8"
+            className="fixed inset-x-0 top-16 z-40 bg-ivory/98 backdrop-blur-2xl border-b border-gold/30 shadow-2xl p-6 lg:hidden"
           >
-            <nav className="flex flex-col gap-4">
-              {navLinks.map((link, idx) => (
-                <motion.a
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -15 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="text-base font-medium text-espresso hover:text-gold py-2 border-b border-gold/10 transition-colors"
+                  className="font-display text-lg font-bold text-espresso hover:text-gold transition-colors py-1 flex items-center justify-between"
                 >
-                  {link.label}
-                </motion.a>
+                  <span>{link.label}</span>
+                  <span className="text-gold text-xs">✦</span>
+                </Link>
               ))}
-              <motion.a
-                href="https://wa.me/911234567890?text=Hi!%20I%20want%20a%20live%20demo%20of%20your%203D%20wedding%20invitation"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="inline-flex items-center justify-center gap-2 w-full mt-4 px-6 py-3.5 rounded-full text-sm font-semibold text-white bg-gold-gradient shadow-gold-glow"
-              >
-                <Sparkles className="w-4 h-4" />
-                Book Live Demo
-              </motion.a>
-            </nav>
+
+              <div className="pt-4 border-t border-gold/20 flex flex-col gap-2">
+                <Link
+                  href="/studio"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full text-center py-3 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-gold-gradient shadow-gold-glow"
+                >
+                  Open Customization Studio
+                </Link>
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    if (onOpenCart) onOpenCart();
+                    else setIsCartOpen(true);
+                  }}
+                  className="w-full text-center py-2.5 rounded-full text-xs font-semibold text-espresso glass border border-gold/30"
+                >
+                  View Cart ({cart.length})
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,29 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Palette, FileText, Rocket, ArrowRight } from "lucide-react";
+import { Palette, Sparkles, Share2, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     step: "01",
-    title: "Pick a 3D Design",
+    title: "Select an Islamic Suite",
     description:
-      "Choose from our curated collection of Royal Palace, Nikah / Walima, or Modern Minimalist templates.",
+      "Choose from our curated collection of Nikah archways, Walima banquets, Eid-ul-Fitr greetings, Ramadan suites, or Aqiqah announcements.",
     icon: Palette,
   },
   {
     step: "02",
-    title: "Share Your Details",
+    title: "Personalize Calligraphy & Duas",
     description:
-      "Send your couple names, wedding dates, venues, and optional photos via our instant form or WhatsApp.",
-    icon: FileText,
+      "Add Arabic & English names, authentic Quranic verses (Surah Ar-Rum), Hijri dates, and Google Maps venue in our live Customization Studio.",
+    icon: Sparkles,
   },
   {
     step: "03",
-    title: "Go Live in 24 Hours",
+    title: "Share 3D Experience & Download",
     description:
-      "Receive your custom link with interactive 3D seal, background music, and ready-to-share WhatsApp card.",
-    icon: Rocket,
+      "Share your custom link with interactive wax seal reveal, WhatsApp RSVP sync, or download instant high-resolution PNG/PDF for print.",
+    icon: Share2,
   },
 ];
 
@@ -33,15 +33,14 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[3px] text-gold">
-            Effortless Journey
+          <span className="text-xs font-bold uppercase tracking-[3px] text-gold-dark">
+            Simple & Sacred Journey
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-espresso">
             How It Works in 3 Simple Steps
           </h2>
           <p className="text-espresso-muted text-sm sm:text-base leading-relaxed">
-            No technical knowledge or coding required. Our team handles complete
-            customization and cloud hosting for you.
+            Zero technical skills needed. Customize directly in your browser, preview in real time, and share meaningful Islamic invitations in minutes.
           </p>
         </div>
 

@@ -1076,16 +1076,27 @@
   }
 
   // ==========================================================================
-  // WEB AUDIO AMBIENT SOUND GENERATOR (ACOUSTIC OUD & CELESTIAL DRONE)
+  // WEDDING NASHEED CONTROLLER (Wedding Nasheed | Muhammad Al Muqit)
   // ==========================================================================
   const ambientAudioBtn = document.getElementById('ambientAudioBtn');
   let audioCtx = null;
   let isPlayingAudio = false;
   let melodyTimer = null;
   let droneGain = null;
+  let nasheedAudio = null;
 
   // Pentatonic Oud scale frequencies (D3, F3, G3, A3, C4, D4, F4, G4, A4, C5)
   const OUD_NOTES = [146.83, 174.61, 196.0, 220.0, 261.63, 293.66, 349.23, 392.0, 440.0, 523.25];
+
+  function initNasheedAudio() {
+    if (!nasheedAudio && typeof Audio !== 'undefined') {
+      nasheedAudio = new Audio('/audio/nasheed-uploaded.mp3');
+      nasheedAudio.loop = true;
+      nasheedAudio.preload = 'auto';
+      nasheedAudio.volume = 0.8;
+    }
+    return nasheedAudio;
+  }
 
   function initAudioContext() {
     if (!audioCtx) {
@@ -1129,13 +1140,31 @@
   }
 
   function startAmbientAtmosphere() {
+    const audio = initNasheedAudio();
+    if (audio) {
+      const promise = audio.play();
+      if (promise !== undefined) {
+        promise.then(() => {
+          isPlayingAudio = true;
+          if (ambientAudioBtn) ambientAudioBtn.classList.add('playing');
+          showLuxuryToast('🎵 Wedding Nasheed | Muhammad Al Muqit');
+        }).catch((err) => {
+          console.log('Audio autoplay prevented, starting fallback:', err);
+          startSynthAtmosphere();
+        });
+        return;
+      }
+    }
+    startSynthAtmosphere();
+  }
+
+  function startSynthAtmosphere() {
     initAudioContext();
     if (!audioCtx) return;
 
     isPlayingAudio = true;
     if (ambientAudioBtn) ambientAudioBtn.classList.add('playing');
 
-    // Create subtle warm celestial drone pad
     if (!droneGain) {
       const now = audioCtx.currentTime;
       const droneOsc1 = audioCtx.createOscillator();
@@ -1166,9 +1195,8 @@
       droneGain.gain.exponentialRampToValueAtTime(0.015, audioCtx.currentTime + 1);
     }
 
-    // Play periodic serene melody
     playMelodySequence();
-    showLuxuryToast('🎵 Ambient Oud Melody playing softly');
+    showLuxuryToast('🎵 Wedding Nasheed | Muhammad Al Muqit');
   }
 
   function playMelodySequence() {
@@ -1183,12 +1211,15 @@
   function stopAmbientAtmosphere() {
     isPlayingAudio = false;
     if (ambientAudioBtn) ambientAudioBtn.classList.remove('playing');
+    if (nasheedAudio) {
+      nasheedAudio.pause();
+    }
     clearTimeout(melodyTimer);
 
     if (droneGain && audioCtx) {
       droneGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
     }
-    showLuxuryToast('Muted ambient music');
+    showLuxuryToast('Muted Wedding Nasheed');
   }
 
   if (ambientAudioBtn) {

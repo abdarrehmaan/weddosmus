@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { StoreProvider } from "@/app/context/StoreContext";
 
 export const metadata: Metadata = {
-  title: "WEDOS — Royal 3D Interactive Digital Wedding Invitations",
+  title: "Noor Al-Aqd — Luxury Islamic Digital Invitations & Muslim Wedding Cards",
   description:
-    "Bespoke 3D interactive wedding website templates inspired by royal palace architecture, golden wax seals, live Google Maps, and instant WhatsApp RSVPs.",
+    "Celebrate life's most sacred moments the Islamic way. Bespoke Islamic digital invitations, Nikah & Walima suites, Eid Mubarak cards, Ramadan greetings, and Aqiqah announcements with 3D wax seal reveals, live WhatsApp RSVPs, and authentic Arabic calligraphy.",
   keywords: [
-    "Royal wedding invitation website",
-    "3D wedding invite light theme",
-    "Palace digital wedding card",
-    "Interactive wedding website",
-    "WhatsApp wedding invite",
-    "Luxury e-invite",
-    "Nikah Walima digital card",
+    "Islamic digital wedding invitation",
+    "Muslim wedding cards online",
+    "Nikah invitation card maker",
+    "Walima digital invite",
+    "Eid Mubarak greeting cards",
+    "Ramadan Kareem cards",
+    "Aqiqah invitation cards",
+    "Bismillah ceremony cards",
+    "Barakallahu Lakuma invitation",
+    "Arabic calligraphy wedding cards",
+    "Islamic e-invite WhatsApp",
+    "3D interactive wedding invitation",
   ],
   openGraph: {
-    title: "WEDOS — Royal 3D Interactive Digital Wedding Invitations",
+    title: "Noor Al-Aqd — Luxury Islamic Digital Invitations & Muslim Wedding Cards",
     description:
-      "Turn your wedding invitation into an ethereal 3D palace experience. Golden seals, live RSVP, music, and maps.",
+      "Celebrate Every Beautiful Moment, The Islamic Way. Authentic Arabic calligraphy, 3D wax seal reveals, live Quranic duas, and instant WhatsApp RSVPs.",
     type: "website",
   },
 };
@@ -29,7 +35,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-ivory text-espresso antialiased">{children}</body>
+      <body className="bg-ivory text-espresso antialiased">
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   );
 }

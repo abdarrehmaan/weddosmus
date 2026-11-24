@@ -1,145 +1,169 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Twitter, Youtube, MessageCircle, Heart, Sparkles } from "lucide-react";
+import { MessageCircle, Heart, Sparkles, Moon, ShieldCheck, Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
-const quickLinks = [
-  { label: "3D Collection", href: "#collection" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+const islamicCategories = [
+  { label: "Nikah & Walima Invitations", href: "/#weddings" },
+  { label: "Eid-ul-Fitr & Eid-ul-Adha Cards", href: "/#festivals" },
+  { label: "Ramadan Kareem & Iftar Dawat", href: "/#festivals" },
+  { label: "Sunnah Aqiqah Milestones", href: "/#weddings" },
+  { label: "Bismillah & Khatam-e-Quran", href: "/#weddings" },
+  { label: "Jummah Mubarak Keepsakes", href: "/#festivals" },
 ];
 
-const socials = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-];
-
-const trustBadges = [
-  "✅ 100% Mobile & WhatsApp Compatible",
-  "⚡ 24-Hour Express Delivery",
-  "🔒 Secure Payments & Free Revisions",
+const platformLinks = [
+  { label: "Customization Studio", href: "/studio" },
+  { label: "3D Nikah Suite Demo", href: "/invite/muslimswedd" },
+  { label: "3D Walima Suite Demo", href: "/invite/walima" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Pricing & Free Cards", href: "/#pricing" },
+  { label: "Admin Dashboard", href: "/admin" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FAF5ED] border-t border-gold/25 relative overflow-hidden">
+    <footer className="bg-[#FAF5ED] border-t border-gold/25 relative overflow-hidden text-espresso">
       {/* Subtle Warm Amber Glow Corner */}
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-emerald-200/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        {/* Top Row: Brand & Columns */}
+        {/* Top Islamic Banner Quote */}
+        <div className="text-center py-6 mb-12 border-b border-gold/20 max-w-2xl mx-auto space-y-2">
+          <p className="font-arabic text-xl sm:text-2xl text-emerald-950 font-bold leading-relaxed">
+            بَارَكَ ٱللَّٰهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+          </p>
+          <p className="text-xs text-espresso-muted italic">
+            &ldquo;May Allah bless you, shower His blessings upon you, and unite you both in goodness.&rdquo;
+          </p>
+        </div>
+
+        {/* Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Column 1: Brand Info */}
-          <div className="md:col-span-2 space-y-4">
-            <a href="#" className="flex items-center gap-2">
-              <span className="gold-shimmer-text font-display text-3xl font-extrabold tracking-wider">
-                WEDOS
+          <div className="md:col-span-1 space-y-4">
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 rounded-full bg-emerald-900 border border-gold/40 flex items-center justify-center text-gold-light">
+                <span className="font-arabic text-base font-bold">نور</span>
+              </div>
+              <span className="gold-shimmer-text font-display text-2xl font-extrabold tracking-wider">
+                NOOR AL-AQD
               </span>
-              <Sparkles className="w-5 h-5 text-gold" />
-            </a>
-            <p className="text-sm text-espresso-muted max-w-sm leading-relaxed">
-              Crafting bespoke 3D interactive wedding website experiences inspired by
-              royal palace architecture, golden wax seals, and modern digital grace.
+            </Link>
+            <p className="text-xs text-espresso-muted leading-relaxed">
+              The premier Islamic digital invitation & greeting card studio. Exclusively dedicated to Muslim weddings, Eid celebrations, and religious family events.
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              {socials.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    aria-label={s.label}
-                    className="w-9 h-9 rounded-full glass flex items-center justify-center text-espresso-muted hover:text-gold hover:border-gold/40 hover:scale-110 transition-all shadow-sm"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                );
-              })}
+            <div className="pt-2 text-xs text-emerald-900 font-semibold flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-700" />
+              100% Islamic & Sunnah Compliant
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Islamic Occasions */}
           <div>
-            <h4 className="font-display text-sm font-bold text-espresso uppercase tracking-wider mb-4">
-              Explore
+            <h4 className="font-display text-xs font-bold text-espresso uppercase tracking-wider mb-4 flex items-center gap-1.5">
+              <Moon className="w-3.5 h-3.5 text-gold" />
+              Sacred Occasions
             </h4>
             <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
+              {islamicCategories.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-espresso-muted hover:text-gold transition-colors"
+                    className="text-xs text-espresso-muted hover:text-gold transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Contact Details */}
+          {/* Column 3: Platform Tools */}
           <div>
-            <h4 className="font-display text-sm font-bold text-espresso uppercase tracking-wider mb-4">
-              Get in Touch
+            <h4 className="font-display text-xs font-bold text-espresso uppercase tracking-wider mb-4 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-gold" />
+              Studio & Features
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-espresso-muted">
-              <li>📍 New Delhi, India · Global Delivery</li>
-              <li>📱 WhatsApp: +91 12345 67890</li>
-              <li>✉️ hello@wedos.in</li>
-              <li>🕐 Mon–Sat, 10:00 AM – 8:00 PM IST</li>
+            <ul className="space-y-2.5">
+              {platformLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-xs text-espresso-muted hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Details */}
+          <div>
+            <h4 className="font-display text-xs font-bold text-espresso uppercase tracking-wider mb-4">
+              Direct Concierge
+            </h4>
+            <ul className="space-y-2 text-xs text-espresso-muted">
+              <li className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
+                Dubai • London • Hyderabad
+              </li>
+              <li className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
+                WhatsApp: +91 94736 30937
+              </li>
+              <li className="flex items-center gap-1.5">
+                <Mail className="w-3.5 h-3.5 text-gold shrink-0" />
+                salam@nooralaqd.com
+              </li>
+              <li>⏰ Sunday–Thursday: 9am – 9pm</li>
             </ul>
           </div>
         </div>
 
-        {/* Trust Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-3 py-6 border-y border-gold/15">
-          {trustBadges.map((badge) => (
-            <span
-              key={badge}
-              className="glass-strong rounded-full px-4 py-2 text-xs font-medium text-espresso-light shadow-sm"
+        {/* Bottom copyright row */}
+        <div className="pt-8 border-t border-gold/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-espresso-muted">
+          <p>© {new Date().getFullYear()} Noor Al-Aqd Islamic Digital Studio. All rights reserved.</p>
+          <p className="text-gold/70">Made by <a href="https://abdurrahmanmaqsood.in" target="_blank" rel="noopener noreferrer" className="text-gold font-semibold hover:underline">Abdarrehmaan</a></p>
+          <div className="flex gap-4">
+            <Link href="/studio" className="hover:text-gold transition-colors">
+              Customizer Studio
+            </Link>
+            <Link href="/admin" className="hover:text-gold transition-colors">
+              Admin Portal
+            </Link>
+            <a
+              href="https://wa.me/919473630937"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-800 font-semibold hover:underline"
             >
-              {badge}
-            </span>
-          ))}
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-espresso-muted">
-          <p>© {new Date().getFullYear()} WEDOS. All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
-            Designed with <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> & Barakah
-          </p>
+              WhatsApp Support
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
 
-/* ── Floating WhatsApp Action Button ── */
+// Floating WhatsApp concierge button
 export function WhatsAppButton() {
   return (
-    <motion.a
-      href="https://wa.me/911234567890?text=Hi!%20I'm%20interested%20in%20a%20royal%203D%20wedding%20invitation%20website."
+    <a
+      href="https://wa.me/919473630937?text=Assalamu%20Alaikum!%20I%20would%20like%20to%20inquire%20about%20Noor%20Islamic%20invitations."
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1.5, type: "spring", stiffness: 260, damping: 20 }}
-      whileHover={{ scale: 1.1 }}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] shadow-[0_8px_25px_rgba(37,211,102,0.4)] flex items-center justify-center cursor-pointer group"
-      aria-label="Chat on WhatsApp"
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 rounded-full bg-emerald-800 text-white shadow-emerald-glow hover:bg-emerald-700 hover:scale-105 transition-all"
+      aria-label="Contact Concierge on WhatsApp"
     >
-      {/* Pulsing Ring */}
-      <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none" />
-      <MessageCircle className="w-7 h-7 text-white fill-white relative z-10" />
-
-      {/* Hover Tooltip */}
-      <span className="hidden sm:inline-block absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap bg-espresso text-ivory text-xs px-3 py-1.5 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        Chat with Us
+      <MessageCircle className="w-5 h-5" />
+      <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">
+        Islamic Concierge
       </span>
-    </motion.a>
+    </a>
   );
 }
