@@ -86,13 +86,7 @@ export default function OrderModal() {
       .join("\n");
 
     const encoded = encodeURIComponent(msg);
-    window.open(`https://wa.me/911234567890?text=${encoded}`, "_blank");
-  };
-
-  const handlePayment = () => {
-    alert(
-      "Razorpay Gateway Ready! Once connected with your merchant keys, this will instantly launch UPI / Cards / NetBanking."
-    );
+    window.open(`https://wa.me/919473630937?text=${encoded}`, "_blank");
   };
 
   const inputClasses =
@@ -223,24 +217,18 @@ export default function OrderModal() {
                 />
               </div>
 
-              {/* Dual Actions */}
-              <div className="pt-2 space-y-2.5">
+              {/* WhatsApp Only Order Action */}
+              <div className="pt-2 space-y-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-6 rounded-full font-semibold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] shadow-md hover:scale-102 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 px-6 rounded-full font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] shadow-md hover:scale-102 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  Send Order Details on WhatsApp
+                  Place Order on WhatsApp (+91 9473630937)
                 </button>
-
-                <button
-                  type="button"
-                  onClick={handlePayment}
-                  className="w-full py-3.5 px-6 rounded-full font-semibold text-xs uppercase tracking-wider text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-102 transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <CreditCard className="w-4 h-4" />
-                  Proceed to Online Payment (Razorpay Ready)
-                </button>
+                <p className="text-[11px] text-center text-espresso-muted">
+                  💬 Orders are accepted exclusively via WhatsApp for personalized concierge support.
+                </p>
               </div>
 
               {/* Badges */}

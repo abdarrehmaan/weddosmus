@@ -228,10 +228,10 @@ export default function CartDrawer({ onCheckout }: { onCheckout: () => void }) {
                 {/* Checkout Button */}
                 <button
                   onClick={handleStartCheckout}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-[1.02] transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-emerald-800 hover:bg-emerald-700 shadow-md hover:scale-[1.02] transition-all cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4" />
-                  Proceed to Secure Checkout
+                  <Sparkles className="w-4 h-4 text-gold-light" />
+                  Proceed to WhatsApp Order
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

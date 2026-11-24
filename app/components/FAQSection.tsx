@@ -88,7 +88,7 @@ export default function FAQSection() {
             We build bespoke multi-event chapters for Mehendi, Sangeet, Barat, Nikah, and Walima.
           </p>
           <a
-            href="https://wa.me/911234567890?text=Hi!%20I%20have%20a%20custom%20wedding%20theme%20question"
+            href="https://wa.me/919473630937?text=Hi!%20I%20have%20a%20custom%20wedding%20theme%20question"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:text-gold pt-2 underline underline-offset-4"

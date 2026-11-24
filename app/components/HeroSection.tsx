@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] pt-32 pb-16 flex items-center justify-center overflow-hidden islamic-pattern-bg">
+    <section className="relative min-h-[92vh] pt-36 sm:pt-32 pb-16 flex items-center justify-center overflow-hidden islamic-pattern-bg">
       {/* Decorative Islamic Background Ornaments */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-amber-200/25 via-emerald-100/20 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-24 left-10 w-72 h-72 bg-emerald-700/10 rounded-full blur-3xl pointer-events-none" />

@@ -4,18 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
-  CreditCard,
-  QrCode,
-  Building,
   CheckCircle2,
-  Lock,
   ArrowRight,
   Sparkles,
-  Download,
-  Share2,
   Phone,
   Mail,
   User,
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { useStore, Order } from "@/app/context/StoreContext";
@@ -37,14 +32,10 @@ export default function CheckoutModal({ isOpen, onClose, directTemplate }: Check
     user,
   } = useStore();
 
-  const [paymentMethod, setPaymentMethod] = useState<"upi" | "card" | "netbanking" | "whatsapp">("upi");
   const [customerName, setCustomerName] = useState(user?.name || "");
   const [customerEmail, setCustomerEmail] = useState(user?.email || "");
   const [customerPhone, setCustomerPhone] = useState(user?.phone || "");
   const [notes, setNotes] = useState("");
-  const [cardNumber, setCardNumber] = useState("4532 •••• •••• 8921");
-  const [cardExpiry, setCardExpiry] = useState("12/28");
-  const [cardCvv, setCardCvv] = useState("•••");
   const [isProcessing, setIsProcessing] = useState(false);
   const [completedOrder, setCompletedOrder] = useState<Order | null>(null);
 
@@ -93,20 +84,51 @@ export default function CheckoutModal({ isOpen, onClose, directTemplate }: Check
         discount,
         couponCode: appliedCoupon?.code,
         total: finalTotal,
-        paymentMethod:
-          paymentMethod === "upi"
-            ? "UPI / Instant QR"
-            : paymentMethod === "card"
-            ? "Credit/Debit Card"
-            : paymentMethod === "netbanking"
-            ? "Islamic Net Banking"
-            : "WhatsApp Direct Order",
+        paymentMethod: "WhatsApp Direct (+91 9473630937)",
         notes: notes.trim(),
       });
 
+      // Format WhatsApp order message
+      const itemsList = itemsToBuy
+        .map(
+          (item: any, idx: number) =>
+            `${idx + 1}. *${item.title}* — ${
+              item.price === 0 ? "FREE" : `₹${item.price.toLocaleString("en-IN")}`
+            }`
+        )
+        .join("\n");
+
+      const waMessage = [
+        `🌙 *New Order on Noor Al-Aqd* 🌙`,
+        ``,
+        `📦 *Order ID:* #${order.id}`,
+        `👤 *Customer Name:* ${customerName.trim()}`,
+        `📞 *WhatsApp Number:* ${customerPhone.trim()}`,
+        customerEmail.trim() ? `📧 *Email:* ${customerEmail.trim()}` : "",
+        ``,
+        `🛍️ *Ordered Template(s):*`,
+        itemsList,
+        ``,
+        `💰 *Subtotal:* ₹${subtotal.toLocaleString("en-IN")}`,
+        discount > 0
+          ? `🏷️ *Discount (${appliedCoupon?.code}):* -₹${discount.toLocaleString("en-IN")}`
+          : "",
+        `💵 *Total Amount:* ${finalTotal === 0 ? "FREE" : `₹${finalTotal.toLocaleString("en-IN")}`}`,
+        notes.trim() ? `📝 *Special Notes:* ${notes.trim()}` : "",
+        ``,
+        `Assalamu Alaikum! I have submitted this order. Please confirm the details and proceed with my suite. JazakAllah Khair!`,
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      window.open(
+        `https://wa.me/919473630937?text=${encodeURIComponent(waMessage)}`,
+        "_blank"
+      );
+
       setIsProcessing(false);
       setCompletedOrder(order);
-    }, 1200);
+    }, 1000);
   };
 
   const handleClose = () => {
@@ -190,13 +212,24 @@ export default function CheckoutModal({ isOpen, onClose, directTemplate }: Check
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+                <a
+                  href={`https://wa.me/919473630937?text=${encodeURIComponent(
+                    `Assalamu Alaikum! Inquiring about Order #${completedOrder.id} for ${completedOrder.customerName}.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] shadow-md hover:scale-105 transition-all"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  Chat on WhatsApp (+91 9473630937)
+                </a>
                 <Link
                   href="/studio"
                   onClick={handleClose}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gold-gradient shadow-gold-glow hover:scale-105 transition-all"
                 >
                   <Sparkles className="w-4 h-4" />
-                  Customize in Studio Now
+                  Customize in Studio
                 </Link>
                 <Link
                   href="/account"
@@ -287,134 +320,56 @@ export default function CheckoutModal({ isOpen, onClose, directTemplate }: Check
                 </div>
               </div>
 
-              {/* Payment Methods */}
-              {finalTotal > 0 && (
-                <div className="space-y-3">
-                  <h3 className="font-display font-bold text-base text-espresso flex items-center gap-2">
-                    <Lock className="w-4 h-4 text-gold" />
-                    Select Payment Method
-                  </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod("upi")}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
-                        paymentMethod === "upi"
-                          ? "border-gold bg-gold/10 font-bold text-espresso shadow-sm"
-                          : "border-gold/20 glass text-espresso-muted hover:border-gold/40"
-                      }`}
-                    >
-                      <QrCode className="w-5 h-5 mx-auto mb-1 text-gold" />
-                      <span className="text-[11px] block">UPI / QR</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod("card")}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
-                        paymentMethod === "card"
-                          ? "border-gold bg-gold/10 font-bold text-espresso shadow-sm"
-                          : "border-gold/20 glass text-espresso-muted hover:border-gold/40"
-                      }`}
-                    >
-                      <CreditCard className="w-5 h-5 mx-auto mb-1 text-gold" />
-                      <span className="text-[11px] block">Card</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod("netbanking")}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
-                        paymentMethod === "netbanking"
-                          ? "border-gold bg-gold/10 font-bold text-espresso shadow-sm"
-                          : "border-gold/20 glass text-espresso-muted hover:border-gold/40"
-                      }`}
-                    >
-                      <Building className="w-5 h-5 mx-auto mb-1 text-gold" />
-                      <span className="text-[11px] block">Net Banking</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod("whatsapp")}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
-                        paymentMethod === "whatsapp"
-                          ? "border-emerald-600 bg-emerald-50 font-bold text-emerald-900 shadow-sm"
-                          : "border-gold/20 glass text-espresso-muted hover:border-gold/40"
-                      }`}
-                    >
-                      <Phone className="w-5 h-5 mx-auto mb-1 text-emerald-600" />
-                      <span className="text-[11px] block">WhatsApp</span>
-                    </button>
+              {/* Direct WhatsApp Ordering Notice */}
+              <div className="p-4 rounded-2xl bg-emerald-950/5 border border-emerald-800/25 space-y-2">
+                <div className="flex items-center gap-2.5 text-emerald-900 font-bold text-sm">
+                  <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <MessageCircle className="w-4 h-4 fill-white" />
                   </div>
-
-                  {/* Payment Sub-details */}
-                  {paymentMethod === "upi" && (
-                    <div className="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-200/80 flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-emerald-800 text-white flex items-center justify-center shrink-0">
-                        <QrCode className="w-6 h-6" />
-                      </div>
-                      <div className="text-xs text-emerald-900">
-                        <p className="font-semibold">Instant UPI & QR Code</p>
-                        <p className="text-[11px] text-emerald-700">
-                          Supports Google Pay, PhonePe, Paytm, and BHIM UPI with instant approval.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {paymentMethod === "card" && (
-                    <div className="p-3.5 rounded-xl bg-white border border-gold/30 space-y-2 text-xs">
-                      <input
-                        type="text"
-                        placeholder="Card Number"
-                        value={cardNumber}
-                        onChange={(e) => setCardNumber(e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-gold/30 bg-ivory focus:outline-none"
-                      />
-                      <div className="grid grid-cols-2 gap-2">
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          value={cardExpiry}
-                          onChange={(e) => setCardExpiry(e.target.value)}
-                          className="w-full px-3 py-2 rounded-lg border border-gold/30 bg-ivory focus:outline-none"
-                        />
-                        <input
-                          type="password"
-                          placeholder="CVV"
-                          value={cardCvv}
-                          onChange={(e) => setCardCvv(e.target.value)}
-                          className="w-full px-3 py-2 rounded-lg border border-gold/30 bg-ivory focus:outline-none"
-                        />
-                      </div>
-                    </div>
-                  )}
+                  <span>Direct WhatsApp Ordering Active</span>
                 </div>
-              )}
+                <p className="text-xs text-espresso-muted leading-relaxed">
+                  All wedding suites and invitations are ordered directly via WhatsApp at{" "}
+                  <strong className="text-emerald-900 font-semibold">+91 9473630937</strong> for personal concierge assistance and customization.
+                </p>
+              </div>
+
+              {/* Special Notes / Event Details */}
+              <div>
+                <label className="block text-[11px] font-semibold text-espresso-muted uppercase mb-1">
+                  Special Notes or Event Details (Optional)
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder="e.g., Groom & Bride names, wedding date, venue, custom Arabic dua..."
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  className="w-full px-3.5 py-2 text-xs rounded-xl border border-gold/30 bg-white focus:outline-none focus:ring-1 focus:ring-gold"
+                />
+              </div>
 
               {/* Submit CTA */}
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-gold-gradient shadow-gold-glow hover:shadow-gold-glow-strong hover:scale-[1.02] transition-all cursor-pointer disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-[#25D366] hover:bg-[#20ba59] shadow-md hover:scale-[1.02] transition-all cursor-pointer disabled:opacity-50"
               >
                 {isProcessing ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Processing Sacred Order...
+                    Opening WhatsApp Order...
                   </>
                 ) : (
                   <>
-                    <Sparkles className="w-4 h-4" />
-                    Confirm & Complete Order ({finalTotal === 0 ? "FREE" : `₹${finalTotal.toLocaleString("en-IN")}`})
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    Place Order via WhatsApp (+91 9473630937) • {finalTotal === 0 ? "FREE" : `₹${finalTotal.toLocaleString("en-IN")}`}
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
               </button>
 
               <p className="text-[11px] text-center text-espresso-muted">
-                🔒 256-Bit SSL Encrypted • Halal Guarantee • 100% Islamic-Compliant Content
+                💬 Directly connected with our dedicated Islamic Invitation Concierge (+91 9473630937)
               </p>
             </form>
           )}

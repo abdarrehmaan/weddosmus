@@ -15,6 +15,7 @@ export default function Navbar({ onOpenCart, onOpenAccount }: NavbarProps) {
   const { cart, announcement, setIsCartOpen } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,23 +35,29 @@ export default function Navbar({ onOpenCart, onOpenAccount }: NavbarProps) {
   ];
 
   return (
-    <>
+    <div className="fixed top-0 left-0 right-0 z-50">
       {/* Top Announcement Bar */}
-      {announcement && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-amber-100 text-[11px] py-1.5 px-4 text-center font-medium border-b border-gold/30 tracking-wide flex items-center justify-center gap-2">
-          <Moon className="w-3 h-3 text-gold-light" />
+      {announcement && !dismissed && (
+        <div className="bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-amber-100 text-[10.5px] sm:text-xs py-1.5 px-8 sm:px-4 text-center font-medium border-b border-gold/30 tracking-wide flex items-center justify-center gap-1.5 relative shadow-sm leading-snug">
+          <Moon className="w-3 h-3 text-gold-light shrink-0" />
           <span>{announcement}</span>
+          <button
+            type="button"
+            onClick={() => setDismissed(true)}
+            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1 text-amber-200/60 hover:text-white transition-colors rounded-full"
+            aria-label="Dismiss announcement"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
         </div>
       )}
 
       {/* Main Glass Navbar */}
       <header
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          announcement ? "top-7" : "top-0"
-        } ${
+        className={`w-full transition-all duration-300 ${
           scrolled
-            ? "bg-ivory/95 backdrop-blur-xl shadow-palace-soft py-3 border-b border-gold/20"
-            : "bg-ivory/80 backdrop-blur-md py-4"
+            ? "bg-ivory/95 backdrop-blur-xl shadow-palace-soft py-2.5 sm:py-3 border-b border-gold/20"
+            : "bg-ivory/90 backdrop-blur-md py-3 sm:py-4 border-b border-gold/10"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -145,53 +152,53 @@ export default function Navbar({ onOpenCart, onOpenAccount }: NavbarProps) {
             </button>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-16 z-40 bg-ivory/98 backdrop-blur-2xl border-b border-gold/30 shadow-2xl p-6 lg:hidden"
-          >
-            <div className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-display text-lg font-bold text-espresso hover:text-gold transition-colors py-1 flex items-center justify-between"
-                >
-                  <span>{link.label}</span>
-                  <span className="text-gold text-xs">✦</span>
-                </Link>
-              ))}
+        {/* Mobile Drawer Menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="w-full bg-ivory/98 backdrop-blur-2xl border-t border-gold/20 border-b border-gold/30 shadow-2xl px-6 py-5 lg:hidden overflow-hidden"
+            >
+              <div className="flex flex-col space-y-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-display text-lg font-bold text-espresso hover:text-gold transition-colors py-1 flex items-center justify-between"
+                  >
+                    <span>{link.label}</span>
+                    <span className="text-gold text-xs">✦</span>
+                  </Link>
+                ))}
 
-              <div className="pt-4 border-t border-gold/20 flex flex-col gap-2">
-                <Link
-                  href="/studio"
-                  onClick={() => setMobileOpen(false)}
-                  className="w-full text-center py-3 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-gold-gradient shadow-gold-glow"
-                >
-                  Open Customization Studio
-                </Link>
-                <button
-                  onClick={() => {
-                    setMobileOpen(false);
-                    if (onOpenCart) onOpenCart();
-                    else setIsCartOpen(true);
-                  }}
-                  className="w-full text-center py-2.5 rounded-full text-xs font-semibold text-espresso glass border border-gold/30"
-                >
-                  View Cart ({cart.length})
-                </button>
+                <div className="pt-4 border-t border-gold/20 flex flex-col gap-2">
+                  <Link
+                    href="/studio"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full text-center py-3 rounded-full text-xs uppercase tracking-wider font-bold text-white bg-gold-gradient shadow-gold-glow"
+                  >
+                    Open Customization Studio
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setMobileOpen(false);
+                      if (onOpenCart) onOpenCart();
+                      else setIsCartOpen(true);
+                    }}
+                    className="w-full text-center py-2.5 rounded-full text-xs font-semibold text-espresso glass border border-gold/30"
+                  >
+                    View Cart ({cart.length})
+                  </button>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+    </div>
   );
 }
