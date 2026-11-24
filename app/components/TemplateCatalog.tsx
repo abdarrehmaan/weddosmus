@@ -34,6 +34,7 @@ function IslamicTemplateCard({
 }) {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const [imgSrc, setImgSrc] = useState(template.image);
   const { addToCart } = useStore();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -101,9 +102,10 @@ function IslamicTemplateCard({
       {/* Image Preview Container */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-ivory-sandstone">
         <Image
-          src={template.image}
+          src={imgSrc}
           alt={template.title}
           fill
+          onError={() => setImgSrc("/wedding-hero-bg.jpg")}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
         />
