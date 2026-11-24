@@ -374,27 +374,90 @@
       <!-- ======================================================================
            PULL-TO-REVEAL TASSEL SCROLL — Save the Date
            ====================================================================== -->
-      <section id="save" class="scratch-passes-section" role="region" aria-label="Save the Date Scroll">
-        <p class="small tassel-label-small">Save the date</p>
-        <h2 class="tassel-heading">Pull to reveal</h2>
+      <!-- ======================================================================
+           PULL-TO-REVEAL ROYAL TASSEL SCROLL — Save the Date
+           ====================================================================== -->
+      <section id="save" class="scratch-passes-section royal-scroll-showcase" role="region" aria-label="Save the Date Scroll">
+        <div class="scroll-header-ornament">
+          <span class="scroll-arabic-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+          <p class="small tassel-label-small">✦ SAVE OUR BLESSED DATE ✦</p>
+          <h2 class="tassel-heading">Pull The Tassel To Unroll</h2>
+        </div>
 
-        <div class="rod"></div>
+        <!-- Upper Sculpted Royal Rod with Chased Gold Finials -->
+        <div class="rod rod-top" aria-hidden="true">
+          <div class="rod-glow-sheen"></div>
+        </div>
 
+        <!-- Imperial Parchment Scroll -->
         <div class="scroll" id="scroll">
-          <div>
-            <p style="margin:0">Tuesday</p>
-            <b>1</b>
-            <span class="serif">December</span>
-            <p>2026</p>
-            <p>Reception at 7:00 PM · Shalimar Garden</p>
+          <div class="parchment-inner-canvas">
+            <div class="parchment-gold-border">
+              <!-- Corner Islamic Ornaments -->
+              <span class="corner-flourish corner-tl">✦</span>
+              <span class="corner-flourish corner-tr">✦</span>
+              <span class="corner-flourish corner-bl">✦</span>
+              <span class="corner-flourish corner-br">✦</span>
+
+              <div class="scroll-date-header">
+                <span class="scroll-crown-icon">👑</span>
+                <p class="scroll-arabic-event">حَفْلُ اسْتِقْبَالِ العُرْسِ المُبَارَكِ</p>
+                <p class="scroll-day-title">TUESDAY &bull; يَوْمُ الثُّلَاثَاءِ</p>
+              </div>
+
+              <!-- Majestic Date Centerpiece -->
+              <div class="scroll-main-date">
+                <b class="scroll-big-number">1</b>
+                <div class="scroll-month-group">
+                  <span class="serif scroll-month-text">December</span>
+                  <span class="scroll-year-pill">2026 &bull; ١٤٤٨ هـ</span>
+                </div>
+              </div>
+
+              <!-- Royal Gold Divider -->
+              <div class="scroll-divider-art" aria-hidden="true">
+                <svg viewBox="0 0 160 14" width="130" height="12" fill="none">
+                  <path d="M 0 7 Q 40 7 70 2 Q 80 0 90 2 Q 120 7 160 7" stroke="#DFC38A" stroke-width="1.3" stroke-linecap="round"/>
+                  <circle cx="80" cy="7" r="3" fill="#DFC38A"/>
+                  <circle cx="65" cy="7" r="1.5" fill="#DFC38A"/>
+                  <circle cx="95" cy="7" r="1.5" fill="#DFC38A"/>
+                </svg>
+              </div>
+
+              <!-- Ceremony & Couple Highlights -->
+              <div class="scroll-event-details">
+                <h3 class="scroll-names-title">Hamza Khan &amp; Hameeza Siddiqui</h3>
+                <p class="scroll-time-badge">
+                  <span>✨ Wedding Reception at 7:00 PM</span>
+                </p>
+                <p class="scroll-venue-badge">
+                  <span>📍 Shalimar Garden, Kareli, Prayagraj</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="rod" id="rod2"></div>
+        <!-- Lower Sculpted Royal Rod with Chased Gold Finials -->
+        <div class="rod rod-bottom" id="rod2" aria-hidden="true">
+          <div class="rod-glow-sheen"></div>
+        </div>
 
-        <div class="tassel" id="tassel">
-          <i></i><u></u>
-          <em id="th">Drag the tassel down</em>
+        <!-- Handcrafted Silk & Gold Tassel -->
+        <div class="tassel" id="tassel" title="Drag down to unroll scroll">
+          <div class="tassel-cord-wrap">
+            <i></i>
+          </div>
+          <div class="tassel-bell-wrap">
+            <div class="tassel-filigree-ring"></div>
+            <u></u>
+            <div class="tassel-fringe-highlight"></div>
+          </div>
+          <em id="th" class="tassel-hint-pill">
+            <span class="hint-sparkle">✨</span>
+            <span>Drag the tassel down</span>
+            <span class="hint-arrow">↓</span>
+          </em>
         </div>
       </section>
 
@@ -798,10 +861,17 @@
     function reveal() {
       if (done) return;
       done = true;
-      sc.style.height = '250px';          // unroll the scroll
+      var inner = sc.firstElementChild;
+      var targetH = inner ? Math.max(inner.offsetHeight + 12, 345) : 345;
+      sc.style.height = targetH + 'px';          // unroll the scroll gracefully to full content
+      sc.classList.add('unrolled');
       var th = $('th');
       if (th) th.style.display = 'none';  // hide the hint text
       tas.style.transform = '';
+
+      if (typeof showLuxuryToast === 'function') {
+        showLuxuryToast('📜 Imperial Save-the-Date Unrolled!');
+      }
 
       // confetti burst after the scroll opens
       setTimeout(function () {
@@ -810,19 +880,23 @@
         if (!s || !r2) return;
         var box = r2.getBoundingClientRect(),
             o = s.getBoundingClientRect();
-        for (var i = 0; i < 42; i++) {
+        var colors = ['#D4AF37', '#0F4337', '#8C2B3D', '#E9A1B0', '#FFF6BD', '#50C878'];
+        for (var i = 0; i < 48; i++) {
           var c = document.createElement('span');
           c.className = 'cf';
           c.style.left = (box.left + box.width / 2) + 'px';
-          c.style.top  = (box.top - o.top - 120) + 'px';
-          c.style.background = ['#d4ad55', '#8c2b3d', '#0f4337', '#e9a1b0'][i % 4];
-          c.style.setProperty('--x', (Math.random() * 300 - 150) + 'px');
-          c.style.setProperty('--y', (Math.random() * 260 - 90) + 'px');
+          c.style.top  = (box.top - o.top - 140) + 'px';
+          c.style.background = colors[i % colors.length];
+          c.style.width = (i % 3 === 0 ? 10 : 7) + 'px';
+          c.style.height = (i % 3 === 0 ? 14 : 10) + 'px';
+          c.style.borderRadius = (i % 2 === 0 ? '50%' : '2px');
+          c.style.setProperty('--x', (Math.random() * 320 - 160) + 'px');
+          c.style.setProperty('--y', (Math.random() * 280 - 110) + 'px');
           c.style.setProperty('--r', (Math.random() * 720) + 'deg');
           s.appendChild(c);
-          (function (n) { setTimeout(function () { n.remove(); }, 2300); })(c);
+          (function (n) { setTimeout(function () { n.remove(); }, 2400); })(c);
         }
-      }, 900);
+      }, 750);
     }
 
     tas.addEventListener('pointerdown', function (e) {

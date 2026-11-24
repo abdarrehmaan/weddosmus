@@ -2638,76 +2638,258 @@ body.locked {
 
 
 /* ============================================================
-   PULL-TO-REVEAL TASSEL SCROLL — Save the Date
+   PULL-TO-REVEAL ROYAL TASSEL SCROLL — Save the Date
    ============================================================ */
+
+.royal-scroll-showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 38px 18px 28px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(223, 195, 138, 0.12) 0%, transparent 70%);
+}
+
+.scroll-header-ornament {
+  margin-bottom: 1.2rem;
+}
+
+.scroll-arabic-bismillah {
+  display: block;
+  font-family: 'Noto Naskh Arabic', var(--font-arabic, serif);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #C59B48;
+  direction: rtl;
+  margin-bottom: 4px;
+  letter-spacing: normal !important;
+  text-shadow: 0 1px 4px rgba(197, 155, 72, 0.2);
+}
 
 .tassel-label-small {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent-gold-dark);
+  color: var(--accent-gold-dark, #8B6508);
+  font-weight: 700;
   margin: 0 0 0.3rem;
 }
 
 .tassel-heading {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
   font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 1.4rem;
+  color: var(--text-primary, #2D1A0D);
+  margin: 0;
+  letter-spacing: 0.02em;
 }
 
-#save, .scratch-passes-section:has(#scroll) {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 32px 22px 24px;
-  text-align: center;
-}
-
+/* Ornate Turned-Gold Sculpted Rods */
 .rod {
-  width: min(86vw, 320px);
-  height: 14px;
-  border-radius: 8px;
-  background: linear-gradient(#f1d98f, #b98f3a);
-  box-shadow: 0 4px 8px rgba(0,0,0,.25);
+  width: min(88vw, 340px);
+  height: 18px;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #FFF5C0 0%, #E5BE53 25%, #C59828 55%, #8B6310 85%, #E5BE53 100%);
+  box-shadow: 0 6px 14px rgba(45, 26, 13, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.85);
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  border: 1px solid rgba(255, 240, 180, 0.75);
 }
 
+.rod::before,
+.rod::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 26px;
+  border-radius: 6px;
+  background: radial-gradient(circle at 35% 30%, #FFF9D2 0%, #D4AF37 40%, #7A530E 100%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  border: 1px solid #FFE484;
+}
+
+.rod::before {
+  left: -7px;
+}
+
+.rod::after {
+  right: -7px;
+}
+
+.rod-glow-sheen {
+  position: absolute;
+  top: 2px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* Royal Parchment Scroll */
 .scroll {
-  width: min(80vw, 296px);
+  width: min(82vw, 316px);
   height: 0;
   overflow: hidden;
-  transition: height 1.5s cubic-bezier(.3,.7,.2,1);
-  background: #fdf6e6;
+  transition: height 1.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+  background:
+    radial-gradient(ellipse at 50% 25%, #FFFDF7 0%, #FAF3E3 65%, #F1E0C0 100%),
+    repeating-linear-gradient(45deg, rgba(197, 155, 72, 0.025) 0px, rgba(197, 155, 72, 0.025) 2px, transparent 2px, transparent 10px);
   color: #0b2f27;
-  border-left: 1px solid rgba(169,127,44,.55);
-  border-right: 1px solid rgba(169,127,44,.55);
+  border-left: 2.5px solid #C59B48;
+  border-right: 2.5px solid #C59B48;
+  box-shadow:
+    inset 0 14px 22px -8px rgba(100, 65, 15, 0.35),
+    inset 0 -14px 22px -8px rgba(100, 65, 15, 0.35),
+    0 12px 32px rgba(0, 0, 0, 0.12);
+  position: relative;
 }
-.scroll div { padding: 26px 10px; }
+
+.scroll.unrolled {
+  box-shadow:
+    inset 0 12px 18px -8px rgba(100, 65, 15, 0.25),
+    inset 0 -12px 18px -8px rgba(100, 65, 15, 0.25),
+    0 16px 36px rgba(45, 26, 13, 0.18);
+}
+
+.parchment-inner-canvas {
+  padding: 10px 8px;
+}
+
+/* Double Gold Islamic Border inside Parchment */
+.parchment-gold-border {
+  border: 1px solid rgba(197, 155, 72, 0.65);
+  outline: 1px solid rgba(197, 155, 72, 0.3);
+  outline-offset: -5px;
+  border-radius: 8px;
+  padding: 16px 12px 14px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.corner-flourish {
+  position: absolute;
+  font-size: 9px;
+  color: #C59B48;
+  line-height: 1;
+}
+
+.corner-tl { top: 7px; left: 7px; }
+.corner-tr { top: 7px; right: 7px; }
+.corner-bl { bottom: 7px; left: 7px; }
+.corner-br { bottom: 7px; right: 7px; }
+
+.scroll-crown-icon {
+  font-size: 1.15rem;
+  display: block;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.35));
+}
+
+.scroll-arabic-event {
+  font-family: 'Amiri', serif;
+  font-size: 0.95rem;
+  color: #8C6A3A;
+  margin: 0;
+  direction: rtl;
+  font-weight: 700;
+}
+
+.scroll-day-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #0F4337;
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+
+/* Centerpiece Date */
+.scroll-main-date {
+  margin: 2px 0;
+}
+
+.scroll-big-number,
 .scroll b {
   display: block;
-  font: 700 76px/1 'Cormorant Garamond', serif;
-  color: #0f4337;
-  margin: 6px 0;
+  font: 700 84px/0.92 'Cormorant Garamond', serif;
+  background: linear-gradient(180deg, #0F4337 0%, #1A5748 60%, #0A2B23 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 2px 0 0;
+  filter: drop-shadow(0 2px 4px rgba(15, 67, 55, 0.18));
 }
-.scroll-serif,
-.scroll .serif {
-  font-size: 26px;
-  font-style: italic;
+
+.scroll-month-group {
+  margin-top: -2px;
+}
+
+.scroll-month-text,
+.scroll .serif,
+.scroll-serif {
+  display: block;
   font-family: 'Cormorant Garamond', serif;
-  color: #0b2f27;
+  font-size: 27px;
+  font-style: italic;
+  font-weight: 700;
+  color: #8C6A3A;
+  line-height: 1.1;
+  text-shadow: 0 1px 2px rgba(140, 106, 58, 0.15);
 }
 
-.scroll p {
-  margin: 6px 0 0;
-  font-size: 12px;
-  color: #4d6a5f;
+.scroll-year-pill {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #0F4337;
+  background: rgba(197, 155, 72, 0.18);
+  border: 1px solid rgba(197, 155, 72, 0.35);
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-top: 3px;
 }
 
+.scroll-divider-art {
+  margin: 8px auto 6px;
+  line-height: 1;
+}
+
+.scroll-names-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #2D1A0D;
+  margin: 0 0 3px;
+  letter-spacing: 0.02em;
+}
+
+.scroll-time-badge {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0F4337;
+  letter-spacing: 0.04em;
+}
+
+.scroll-venue-badge {
+  margin: 2px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: #665042;
+  font-weight: 500;
+}
+
+/* Handcrafted Silk & Gold Tassel */
 .tassel {
   touch-action: none;
   cursor: grab;
@@ -2716,47 +2898,120 @@ body.locked {
   align-items: center;
   margin-top: -2px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   user-select: none;
+  transition: transform 0.25s ease;
 }
+
+.tassel:active {
+  cursor: grabbing;
+}
+
+.tassel-cord-wrap i,
 .tassel i {
-  width: 2px;
-  height: 34px;
-  background: #b98f3a;
+  width: 3px;
+  height: 36px;
+  background: linear-gradient(90deg, #B98F3A, #FFE89E 50%, #8B6310);
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.45);
   display: block;
 }
+
+.tassel-bell-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tassel-filigree-ring {
+  width: 24px;
+  height: 7px;
+  background: linear-gradient(90deg, #8B6310, #FFE89E 50%, #8B6310);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  border: 1px solid #FFE484;
+  margin-bottom: -1px;
+  z-index: 2;
+}
+
+.tassel-bell-wrap u,
 .tassel u {
-  width: 16px;
-  height: 46px;
-  border-radius: 7px 7px 3px 3px;
-  background: #0f4337;
-  box-shadow: 0 0 0 2px #b98f3a;
+  width: 20px;
+  height: 50px;
+  border-radius: 9px 9px 4px 4px;
+  background: linear-gradient(180deg, #0F4337 0%, #175e4e 50%, #0A2B23 100%);
+  box-shadow: 0 0 0 2px #D4AF37, 0 6px 14px rgba(15, 67, 55, 0.45);
   display: block;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
-.tassel em {
-  font-size: 12px;
-  font-style: normal;
-  color: var(--accent-gold-dark);
-  margin-top: 10px;
-  animation: nudge2 1.6s ease-in-out infinite;
-  display: block;
-}
-@keyframes nudge2 { 50% { transform: translateY(6px); } }
 
-/* confetti pieces */
+.tassel-fringe-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.6) 0px, rgba(212, 175, 55, 0.6) 2px, transparent 2px, transparent 4px);
+  pointer-events: none;
+}
+
+/* Luxurious Floating Hint Pill */
+.tassel-hint-pill,
+.tassel em {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FFF6BD 0%, #F5C642 35%, #DF9E26 70%, #FFF8D6 100%);
+  color: #2D1A0D;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(223, 158, 38, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.7);
+  animation: nudge2 1.6s ease-in-out infinite;
+}
+
+.hint-arrow {
+  font-weight: 900;
+  animation: bounceDown 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes bounceDown {
+  from { transform: translateY(-2px); }
+  to { transform: translateY(3px); }
+}
+
+@keyframes nudge2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Multi-colored Royal Confetti */
 .cf {
   position: absolute;
-  width: 8px;
-  height: 12px;
   pointer-events: none;
   z-index: 6;
-  animation: burst 2.2s ease-out forwards;
-  border-radius: 2px;
+  animation: burst 2.4s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
 @keyframes burst {
-  to {
-    transform: translate(var(--x), var(--y)) rotate(var(--r));
+  0% {
+    transform: translate(0, 0) scale(0.6) rotate(0deg);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1) rotate(var(--r));
     opacity: 0;
   }
 }
